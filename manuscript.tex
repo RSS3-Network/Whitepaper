@@ -1,0 +1,61 @@
+\documentclass[conference]{IEEEtran}
+
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\renewcommand\IEEEkeywordsname{Keywords}
+
+\usepackage{caption}
+\usepackage{url}
+\usepackage{titletoc}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[table]{xcolor}
+
+\def\thesubsubsectiondis{\unskip\arabic{subsubsection})}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=brown,
+    }
+
+\input{acronyms.tex}
+
+\begin{document}
+
+\title{RSS3: The Open Information Layer}
+
+\author{Natural Selection Labs}
+\maketitle
+
+\thispagestyle{plain}
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{abstract}
+
+Inspired by the original RSS Standard, this paper presents RSS3, \acrlong{OIL} for the \acrlong{OW}. The paper serves as an enhanced version of our initial whitepaper titled ``RSS3: A Next-Generation Feed Standard.'' Following the release of our initial whitepaper, we have adhered to its proposed architecture to conduct experiments and advance the development of the RSS3 Network. The Network has transformed into what is now known as the \acrlong{OIL}, reflecting the evolving dynamics of the \acrlong{OW}. This paper summarizes our research and development progress since then, providing insights into RSS3's vision and its decentralization architecture.
+
+\end{abstract}
+
+\input{sections/intro}
+
+\input{sections/layer/OIL}
+
+\input{sections/incentive}
+
+\input{sections/scalability}
+
+\input{sections/conclusion}
+
+
+\printglossary[type=main,title=Glossary, toctitle=Glossary]
+
+
+
+% \bibliographystyle{plain}
+% \bibliography{references}
+
+\end{document}
+
