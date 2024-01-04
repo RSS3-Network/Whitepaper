@@ -1,5 +1,6 @@
-\usepackage[nopostdot,nonumberlist]{glossaries}
+\usepackage[nopostdot,nonumberlist,automake]{glossaries-extra}
 
+\setabbreviationstyle{long-short}
 \setglossarystyle{altlist}
 
 \makeglossaries
@@ -14,20 +15,23 @@
         long={#2},
         name={#2 (#1)},
         first={#2 (#1)},
+        firstplural={#2s (#1s)},
         description={#3}
     }
 }
 
-\newdualentry{OW}{Open Web}{The next-generation of the Internet where information flows openly without any restrictions, as it is supposed to be.}
+\newdualentry{OW}{Open Web}{The next-generation Internet where information flows openly without any restrictions, as it is supposed to be.}
 
-\newdualentry{OIL}{Open Information Layer}{It is formed by a Data Sub-layer and Value Sub-layer.}
+\newdualentry{OIL}{Open Information Layer}{Formed by a Data Sub-layer and Value Sub-layer.}
 
-\newdualentry{DSL}{Data Sub-layer}{Data Sub-layer is a decentralized network where the Open Information flows from its source to its destination.}
+\newdualentry{DSL}{Data Sub-layer}{A decentralized network where the Open Information flows from its source to its destination.}
 
 \newdualentry{UMS}{Unified Metadata Schemas}{A unified set of data structures for interoperability.}
 
-\newdualentry{SN}{Serving Node}{Serving Node is a Data Sub-layer component that indexes, cleans, stores, and ultimately serves the Open Information to the end users.}
+\newdualentry{SN}{Serving Node}{A Data Sub-layer component that indexes, cleans, stores, and ultimately serves the Open Information to the end users.}
 
-\newdualentry{GI}{Global Indexer}{Global Indexer is a Data Sub-layer component that facilitates coordination among Serving Nodes and engages with the Value Sub-layer.}
+\newdualentry{GI}{Global Indexer}{A Data Sub-layer component that facilitates coordination among Serving Nodes and engages with the Value Sub-layer.}
 
-\newdualentry{VSL}{Value Sub-layer}{Value Sub-layer is a blockchain where the value created by Open Information activities is recorded and distributed.}
+\newdualentry{VSL}{Value Sub-layer}{A blockchain where the value created by Open Information activities is recorded and distributed.}
+
+\newdualentry{PDS}{Permissionless Data Source}{A repository of data that can be accessed without the need for authorization or authentication.}
