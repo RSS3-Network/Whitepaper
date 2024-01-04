@@ -6,7 +6,11 @@ The \gls{DSL} is responsible for Open Information life cycle management, which i
 \subsection{\glsfmtfull{SN}}
 \label{subsec:SN}
 
-An \gls{SN} is responsible for indexing, cleaning, storing, and ultimately serving the Open Information to the end users. Each \gls{SN} operates a number of workers that index and structure information from \gls{PDS}, stores the information, and provides interfaces for access.
+An \gls{SN} is responsible for indexing, transforming, storing, and ultimately serving the Open Information to the end users. Each \gls{SN} operates a number of workers that index and structure information from \gls{PDS}, stores the information, and provides interfaces for access. Workers are community-maintained ``rules'' that define how information is indexed and transformed into the \gls{UMS} format. 
+
+Since each \gls{SN} is independent, it is possible for different \glspl{SN} to operate different workers that cover different \glspl{PDS}, their coverage include, but not limited to, decentralized networks, federated networks, and centralized networks (with permissionless access).
+
+This design enables node operation to be flexible, accessible and affordable, in turn, offering a high degree of decentralization and robustness.
 
 \subsection{\glsfmtfull{GI}}
 \label{subsec:GI}
@@ -18,6 +22,7 @@ A \gls{GI} is responsible for facilitating coordination among \glspl{SN} and eng
     \item A settler for submitting work and slash records to the \gls{VSL}.
 \end{enumerate}
 
+The unique network architecture of the \gls{DSL} demands \glspl{GI} to be equipped with more computational capabilities, in order to work out the optimal route for end users to retrieve information from \glspl{SN}.
 
 \subsection{\glsfmtfull{UMS}}
 \label{subsec:UMS}
