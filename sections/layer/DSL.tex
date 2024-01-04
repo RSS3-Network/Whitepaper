@@ -1,18 +1,31 @@
 \section{Data Sub-layer}
+\label{sec:DSL}
 
-The \gls{DSL} is responsible for information life cycle management, which includes indexing, transformation, storage, dissemination, and consumption \cite{nationalinstituteofstandardsandtechnology2016Information}.
+The \gls{DSL} is responsible for information life cycle management, which includes indexing, transformation, storage, dissemination, and consumption \cite{nationalinstituteofstandardsandtechnology2016Information}. The \gls{DSL} is formed by two components (see \cref{subsec:SN} and \cref{subsec:GI}), and uses the \gls{UMS} (see \cref{subsec:UMS}) to structure the information.
 
-\subsection{Unified Metadata Schemas}
+\subsection{\glsfirst{SN}}
+\label{subsec:SN}
 
-Open Information, indexed from multiple data sources, is structured into the \gls{UMS} format for interoperability.
+An \gls{SN} is responsible for indexing, cleaning, storing, and ultimately serving the Open Information to the end users. Each \gls{SN} operates a number of workers that index and structure information from \gls{PDS}, stores the information, and provides interfaces for access.
 
-Decentralized data sources use different data structures, within a DDS, there might be multiple products, services and protocols that leverage a different data structure to suit their needs. This means limited interoperability, and developers need to look into each and every data structure, when it comes to building. This lack of standardization means developers must investigate each unique structure individually when building applications, which is not scalable.
+\subsection{\glsfirst{GI}}
+\label{subsec:GI}
 
-The UMS addresses this issue by offering a unified set of data structures that serve as an abstraction. This abstraction simplifies the integration process, making it more manageable and scalable for developers to work with data across various data sources.
+An \gls{GI} is responsible for facilitating coordination among \glspl{SN} and engaging with the \gls{VSL}, and performs the following functions:
+\begin{enumerate}
+    \item A load balancer and query router for end users to retrieve information from \glspl{SN}.
+    \item A supervisor for \glspl{SN} to ensure the quality of service.
+    \item A settler for submitting work and slash records to the \gls{VSL}.
+\end{enumerate}
+
+
+\subsection{\glsfirst{UMS}}
+\label{subsec:UMS}
+
+Open Information, indexed from multiple \glspl{PDS}, is structured by \glspl{SN} into the \gls{UMS} format for interoperability.
+
+\glspl{PDS} use different data structures, within a \gls{PDS}, there might be multiple products, services and protocols that leverage a different data structure to suit their needs. This means limited interoperability, and developers need to look into each and every data structure, when it comes to building. This lack of standardization means developers must investigate each unique structure individually when building applications, which is not scalable.
+
+The \gls{UMS} addresses this issue by offering a unified set of data structures that serve as an abstraction. This abstraction simplifies the integration process, making it more manageable and scalable for developers to work with data across various data sources.
 
 For the complete set of the \gls{UMS}, refer to \url{https://docs.rss3.io/docs/unified-metadata-schemas}.
-
-
-\subsubsection{Global Indexer}
-
-\subsubsection{Serving Node}
