@@ -1,17 +1,17 @@
-\section{Data Sub-layer}
+\section{\glsfmtlong{DSL}}
 \label{sec:DSL}
 
-The \gls{DSL} is responsible for information life cycle management, which includes indexing, transformation, storage, dissemination, and consumption \cite{nationalinstituteofstandardsandtechnology2016Information}. The \gls{DSL} is formed by two components (see \cref{subsec:SN} and \cref{subsec:GI}), and uses the \gls{UMS} (see \cref{subsec:UMS}) to structure the information.
+The \gls{DSL} is responsible for Open Information life cycle management, which includes indexing, transformation, storage, dissemination, and consumption \cite{nationalinstituteofstandardsandtechnology2016Information}. The \gls{DSL} is formed by two components (see \cref{subsec:SN} and \cref{subsec:GI}), and uses the \gls{UMS} (see \cref{subsec:UMS}) to structure the information for applications in social, search, AI and beyond.
 
-\subsection{\glsfirst{SN}}
+\subsection{\glsfmtfull{SN}}
 \label{subsec:SN}
 
 An \gls{SN} is responsible for indexing, cleaning, storing, and ultimately serving the Open Information to the end users. Each \gls{SN} operates a number of workers that index and structure information from \gls{PDS}, stores the information, and provides interfaces for access.
 
-\subsection{\glsfirst{GI}}
+\subsection{\glsfmtfull{GI}}
 \label{subsec:GI}
 
-An \gls{GI} is responsible for facilitating coordination among \glspl{SN} and engaging with the \gls{VSL}, and performs the following functions:
+A \gls{GI} is responsible for facilitating coordination among \glspl{SN} and engaging with the \gls{VSL}, and performs the following functions:
 \begin{enumerate}
     \item A load balancer and query router for end users to retrieve information from \glspl{SN}.
     \item A supervisor for \glspl{SN} to ensure the quality of service.
@@ -19,7 +19,7 @@ An \gls{GI} is responsible for facilitating coordination among \glspl{SN} and en
 \end{enumerate}
 
 
-\subsection{\glsfirst{UMS}}
+\subsection{\glsfmtfull{UMS}}
 \label{subsec:UMS}
 
 Open Information, indexed from multiple \glspl{PDS}, is structured by \glspl{SN} into the \gls{UMS} format for interoperability.
