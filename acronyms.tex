@@ -5,6 +5,14 @@
 
 \makeglossaries
 
+% % only show link on first use
+\GlsXtrEnableEntryUnitCounting{general}{0}{chapter}
+\renewcommand*{\glslinkcheckfirsthyperhook}{%
+\ifnum\glsentrycurrcount\glslabel>0
+\setkeys{glslink}{hyper=false}%
+\fi
+}
+
 % #1 - short name: OIL
 % #2 - full name: Open Information Layer
 % #3 - description
@@ -35,3 +43,5 @@
 \newdualentry{VSL}{Value Sub-layer}{A blockchain where the value created by Open Information activities is recorded and distributed.}
 
 \newdualentry{PDS}{Permissionless Data Source}{A repository of data that can be accessed without the need for authorization or authentication.}
+
+\newdualentry{NO}{Node Operator}{An individual or organization that operates a Serving Node.}
