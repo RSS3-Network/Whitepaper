@@ -111,14 +111,14 @@ To encourage participation from all network participants to increase the Network
 
 $\networkReward_{\trusting|\node, \epoch}$ therefore denotes the Trusting Rewards for a given Public Good Node \node, at the end of a given epoch $\epoch$.
 
-\subsubsection{Taxation}
+\subsubsection{Taxation (\tax)}
 
 The tax rate \taxRate\ is set by the \glsfmtlong{NO} of a Normal Node, and is applied to the \glsfmtlong{SR} allocated to its \stakingPool.
-The amount of tax is capped at a maximum of \taxCap\ times the value of the current deposit, as set by the Network.
+The amount of tax collectible is capped at a maximum of \taxCap\ times the amount of the current deposit. \taxCap\ is set by the Network.
 
 \begin{equation}
     \tax_{\node, \epoch} =
-    \min(\deposit_{\node, \epoch} * \taxCap, \networkReward_{\staking|\node, \epoch} * \taxRate_{\node, \epoch})
+    \min(\deposit_{\node, \epoch} * \taxCap_\epoch , \networkReward_{\staking|\node, \epoch} * \taxRate_{\node, \epoch})
 \end{equation}
 
 The total amount of tokens allocated to a Normal Node's \operationPool\ for a given epoch $\epoch$ is therefore:
