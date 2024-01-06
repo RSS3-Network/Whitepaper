@@ -26,7 +26,7 @@ An \glsfirst{OP} is used to store tokens that are allocated to a Normal Node fro
 
 The allocation of \glsfmtlong{NR} into a Node's \operationPool\ at the end of each epoch, is determined by the \glsfmtlong{N} (\work), in proportion to the total number of requests served on the \gls{DSL}.
 
-The \glsfmtlong{NO} can set a tax rate, \tax, which is applied to its \stakingPool.
+The \glsfmtlong{NO} can set a tax rate, \taxRate, which is applied to its \stakingPool.
 The tax applies to the \glsfmtlong{NR} allocated to the Node's \stakingPool, not the staked tokens (REP-1: Chip Redemption Tax).
 
 Only the corresponding \glsfmtlong{NO} can withdraw tokens from its \operationPool, and the withdrawal is subject to a waiting period imposed by the Network.
@@ -95,7 +95,7 @@ To encourage participation from all network participants to increase the Network
     * \networkReward_{\staking, \epoch}
 \end{equation}
 
-$\networkReward_{\staking|\node, \epoch} * (1 - \tax_{\node, \epoch})$ therefore denotes the Staking Rewards for a given Normal Node \node, at the end of a given epoch $\epoch$.
+$\networkReward_{\staking|\node, \epoch} * (1 - \taxRate_{\node, \epoch})$ therefore denotes the Staking Rewards for a given Normal Node \node, at the end of a given epoch $\epoch$.
 
 \subsubsection{\glsfmtfull{TR}}
 
@@ -111,15 +111,23 @@ To encourage participation from all network participants to increase the Network
 
 $\networkReward_{\trusting|\node, \epoch}$ therefore denotes the Trusting Rewards for a given Public Good Node \node, at the end of a given epoch $\epoch$.
 
-\subsubsection{Taxation (\tax)}
+\subsubsection{Taxation}
+
+The tax rate \taxRate\ is set by the \glsfmtlong{NO} of a Normal Node, and is applied to the \glsfmtlong{SR} allocated to its \stakingPool.
+The amount of tax is capped at a maximum of \taxCap\ times the value of the current deposit, as set by the Network.
+
+\begin{equation}
+    \tax_{\node, \epoch} =
+    \min(\deposit_{\node, \epoch} * \taxCap, \networkReward_{\staking|\node, \epoch} * \taxRate_{\node, \epoch})
+\end{equation}
 
 The total amount of tokens allocated to a Normal Node's \operationPool\ for a given epoch $\epoch$ is therefore:
 
 \begin{equation}
     \networkReward_{total|\node, \epoch} =
     \networkReward_{\operation|\node, \epoch}
-    + \networkReward_{\staking|\node, \epoch} * \tax_{\node, \epoch}
     + \fee_{\node, \epoch}
+    + \tax_{\node, \epoch}
 \end{equation}
 
 \subsection{Chip}
@@ -130,13 +138,8 @@ Slashing is a mechanism used to enforce network security and stability. It is ap
 
 A slashing occurs when a Node fails to meet the requirements set by the Network. This can be due to a variety of reasons, including but not limited to: 1) the Node is offline for an extended period of time; 2) the Node is not serving requests in a timely manner; 3) the Node is serving requests but with incorrect information.
 
-In the event of a slashing:
-\begin{itemize}
-    \item the Node's \deposit\ will be slashed by a precentage determined by the network
-    \item the Node's \stakingPool\ will be slashed by a precentage determined by the Network
-    \item the Node's \networkReward\ will be slashed by a precentage determined by the Network
-    \item the Node's \reliabilityScore\ will be negatively impacted, resulting in a lower chance to receive requests on the \gls{DSL}
-\end{itemize}
+Should a slashing occur, the Node's \deposit\, \stakingPool\, and \networkReward\ will be slashed by precentages determined by the Network.
+The Node's \reliabilityScore\ will be negatively impacted, diminishing its likelihood of receiving requests on the \gls{DSL}.
 
 The disposition of the slashed tokens is as follows:
 \begin{itemize}
