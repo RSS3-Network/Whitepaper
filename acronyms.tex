@@ -25,25 +25,27 @@
     {
         % If #2 (the math symbol) is empty
         \newglossaryentry{#1}{%
-            name={#3 (#1)},
+            name={#1 - #3},
             text={#1},
             short={#1},
             long={#3},
             first={#3 (#1)},
             firstplural={#3s (#1s)},
-            description={#4}
+            description={#4},
+            sort={#1}
         }
     }{
         % If #2 is provided
         \newglossaryentry{#1}{%
-            name={#3 (\ensuremath{#2})},
+            name={\ensuremath{#2} - #3},
             text={#1},
             short={\ensuremath{#2}},
             long={#3},
             first={#3 (\ensuremath{#2})},
             firstplural={#3s (#1s)},
             description={#4},
-            symbol={\ensuremath{#2}}
+            symbol={\ensuremath{#2}},
+            sort={#1}
         }
     }
 }
@@ -67,12 +69,22 @@
 
 \newdualentry{PDS}{}{Permissionless Data Source}{A repository of data that can be accessed without the need for authorization or authentication.}
 
+\newdualentry{NR}{R}{Network Rewards}{Tokens allocated by the RSS3 Network to incentivize network participants.}
+
 \newdualentry{NO}{}{Node Operator}{An individual or organization that operates a Serving Node.}
+
+\newdualentry{NM}{}{Normal Mode}{The Node operates for the purpose of strenthening the Network, it receives request fees and \glsfmtlong{NR}.}
 
 \newdualentry{PGP}{P_p}{Public Good Pool}{A collective pool of staked \$RSS3 that is used to improve the RSS3 Network by assigning trust to Public Good Nodes.}
 
-\newdualentry{OP}{P_o}{Operating Pool}{A pool of \$RSS3 that consists of 1) Fees collected from serving Data Sub-layer requests; 2) Network Rewards allocated based on the Node's work.}
+\newdualentry{PGM}{}{Public Good Mode}{The Node operates for the purpose of supporting Public Goods and strenthening the Network, it does not receive any request fees or \glsfmtlong{NR}.}
+
+\newdualentry{OP}{P_o}{Operating Pool}{A pool of \$RSS3 that consists of 1) Fees collected from serving Data Sub-layer requests; 2) \glsfmtlong{NR} allocated based on the Node's work; 3) Tax collected from its Staking Pool.}
 
 \newdualentry{SP}{P_s}{Staking Pool}{A pool of staked \$RSS3 that is used to improve the RSS3 Network by assigning trust to Normal Nodes.}
 
 \newdualentry{R3N}{}{RSS3 Network}{A decentralized network that is formed by a DSL and a VSL.}
+
+\newdualentry{N}{N}{number of requests served on the \glsfmtlong{DSL}}{The metric that reflects the Node's service and is used to determine the allocation of \glsfmtlong{NR} into a Node's \glsfmtlong{OP}.}
+
+\newdualentry{Tax}{\tau}{Operating Tax}{A tax rate set by a Node's \glsfmtlong{OP}, collecting from the \glsfmtlong{NR} that are allocated to its \glsfmtlong{SP}.}
