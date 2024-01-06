@@ -1,4 +1,6 @@
-\usepackage[nopostdot,nonumberlist,automake]{glossaries-extra}
+\usepackage[nopostdot,nonumberlist,automake,symbols]{glossaries-extra}
+
+\usepackage{ifthen}
 
 \setabbreviationstyle{long-short}
 \setglossarystyle{altlist}
@@ -8,40 +10,69 @@
 % % only show link on first use
 \GlsXtrEnableEntryUnitCounting{general}{0}{chapter}
 \renewcommand*{\glslinkcheckfirsthyperhook}{%
-\ifnum\glsentrycurrcount\glslabel>0
-\setkeys{glslink}{hyper=false}%
-\fi
+    \ifnum\glsentrycurrcount\glslabel>0
+        \setkeys{glslink}{hyper=false}%
+    \fi
 }
 
 % #1 - short name: OIL
-% #2 - full name: Open Information Layer
-% #3 - description
-\newcommand{\newdualentry}[3]{
-    \newglossaryentry{#1}{
-        text={#1},
-        short={#1},
-        long={#2},
-        name={#2 (#1)},
-        first={#2 (#1)},
-        firstplural={#2s (#1s)},
-        description={#3}
+% #2 - math symbol
+% #3 - full name: Open Information Layer
+% #4 - description
+
+\newcommand{\newdualentry}[4]{%
+    \ifthenelse{\equal{#2}{}}%
+    {
+        % If #2 (the math symbol) is empty
+        \newglossaryentry{#1}{%
+            name={#3 (#1)},
+            text={#1},
+            short={#1},
+            long={#3},
+            first={#3 (#1)},
+            firstplural={#3s (#1s)},
+            description={#4}
+        }
+    }{
+        % If #2 is provided
+        \newglossaryentry{#1}{%
+            name={#3 (\ensuremath{#2})},
+            text={#1},
+            short={\ensuremath{#2}},
+            long={#3},
+            first={#3 (\ensuremath{#2})},
+            firstplural={#3s (#1s)},
+            description={#4},
+            symbol={\ensuremath{#2}}
+        }
     }
 }
 
-\newdualentry{OW}{Open Web}{The next-generation Internet where information flows openly without any restrictions, as it is supposed to be.}
 
-\newdualentry{OIL}{Open Information Layer}{Formed by a Data Sub-layer and Value Sub-layer.}
+\newdualentry{OW}{}{Open Web}{The next-generation Internet where information flows openly without any restrictions, as it is supposed to be.}
 
-\newdualentry{DSL}{Data Sub-layer}{A decentralized network where the Open Information flows from its source to its destination.}
+\newdualentry{OI}{}{Open Information}{Information that is typically found across various types of networks, including decentralized, federated, and centralized networks that allow permissionless access.}
 
-\newdualentry{UMS}{Unified Metadata Schemas}{A unified set of data structures for interoperability.}
+\newdualentry{OIL}{}{Open Information Layer}{A conceptual layer where information flows openly without any restrictions.}
 
-\newdualentry{SN}{Serving Node}{A Data Sub-layer component that indexes, cleans, stores, and ultimately serves the Open Information to the end users.}
+\newdualentry{DSL}{}{Data Sub-layer}{A decentralized network where the Open Information flows from its source to its destination.}
 
-\newdualentry{GI}{Global Indexer}{A Data Sub-layer component that facilitates coordination among Serving Nodes and engages with the Value Sub-layer.}
+\newdualentry{UMS}{}{Unified Metadata Schemas}{A unified set of data structures for interoperability.}
 
-\newdualentry{VSL}{Value Sub-layer}{A blockchain where the value created by Open Information activities is recorded and distributed.}
+\newdualentry{SN}{}{Serving Node}{A Data Sub-layer component that indexes, cleans, stores, and ultimately serves the Open Information to the end users.}
 
-\newdualentry{PDS}{Permissionless Data Source}{A repository of data that can be accessed without the need for authorization or authentication.}
+\newdualentry{GI}{}{Global Indexer}{A Data Sub-layer component that facilitates coordination among Serving Nodes and engages with the Value Sub-layer.}
 
-\newdualentry{NO}{Node Operator}{An individual or organization that operates a Serving Node.}
+\newdualentry{VSL}{}{Value Sub-layer}{A blockchain where the value created by Open Information activities is recorded and distributed.}
+
+\newdualentry{PDS}{}{Permissionless Data Source}{A repository of data that can be accessed without the need for authorization or authentication.}
+
+\newdualentry{NO}{}{Node Operator}{An individual or organization that operates a Serving Node.}
+
+\newdualentry{PGP}{P_p}{Public Good Pool}{A collective pool of staked \$RSS3 that is used to improve the RSS3 Network by assigning trust to Public Good Nodes.}
+
+\newdualentry{OP}{P_o}{Operating Pool}{A pool of \$RSS3 that consists of 1) Fees collected from serving Data Sub-layer requests; 2) Network Rewards allocated based on the Node's work.}
+
+\newdualentry{SP}{P_s}{Staking Pool}{A pool of staked \$RSS3 that is used to improve the RSS3 Network by assigning trust to Normal Nodes.}
+
+\newdualentry{R3N}{}{RSS3 Network}{A decentralized network that is formed by a DSL and a VSL.}
