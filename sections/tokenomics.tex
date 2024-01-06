@@ -125,3 +125,22 @@ The total amount of tokens allocated to a Normal Node's \operationPool\ for a gi
 \subsection{Chip}
 
 \subsection{Slashing}
+
+Slashing is a mechanism used to enforce network security and stability. It is applied to both Normal Nodes and Public Good Nodes, albeit in slightly different ways.
+
+A slashing occurs when a Node fails to meet the requirements set by the Network. This can be due to a variety of reasons, including but not limited to: 1) the Node is offline for an extended period of time; 2) the Node is not serving requests in a timely manner; 3) the Node is serving requests but with incorrect information.
+
+In the event of a slashing:
+\begin{itemize}
+    \item the Node's \deposit\ will be slashed by a precentage determined by the network
+    \item the Node's \stakingPool\ will be slashed by a precentage determined by the Network
+    \item the Node's \networkReward\ will be slashed by a precentage determined by the Network
+    \item the Node's \reliabilityScore\ will be negatively impacted, resulting in a lower chance to receive requests on the \gls{DSL}
+\end{itemize}
+
+The disposition of the slashed tokens is as follows:
+\begin{itemize}
+    \item a portion of the slashed tokens will be burned, the amount is determined by the Network
+    \item a portion of the slashed tokens will go to the reporter, provided the Node’s misconduct was not auto-detected by the Network
+    \item the remaining portion of the slashed tokens will go to the \publicGoodPool
+\end{itemize}
