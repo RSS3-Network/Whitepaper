@@ -1,7 +1,7 @@
 % import math notations
 \input{notations.tex}
 
-\usepackage[nopostdot,nonumberlist,automake,symbols]{glossaries-extra}
+\usepackage[nopostdot,automake]{glossaries-extra}
 
 \usepackage{ifthen}
 
@@ -9,7 +9,6 @@
 \setglossarystyle{altlist}
 
 \makeglossaries
-
 % only show link on first use
 \GlsXtrEnableEntryUnitCounting{general}{0}{chapter}
 \renewcommand*{\glslinkcheckfirsthyperhook}{%
@@ -28,7 +27,7 @@
     {
         % If #2 (the math symbol) is empty
         \newglossaryentry{#1}{%
-            name={#1 - #3},
+            name={#3 - #1},
             text={#1},
             short={#1},
             long={#3},
@@ -40,7 +39,7 @@
     }{
         % If #2 is provided
         \newglossaryentry{#1}{%
-            name={\ensuremath{#2} - #3},
+            name={#3 - \ensuremath{#2}},
             text={#1},
             short={\ensuremath{#2}},
             long={#3},
@@ -103,4 +102,4 @@
 
 \newdualentry{Deposit}{\deposit}{Deposit}{Tokens that are required to be locked by a Node's \glsfmtlong{OP} to operate the Node.}
 
-\newdualentry{Fee}{\fee}{Request Fees}{Fees paid to \glspl{SN} for delivering \gls{OI} from the \glsfmtlong{PDS} to the requesters.}
+\newdualentry{Fee}{\fee}{Request Fees}{Fees paid to \glspl{SN} for delivering \glsfmtlong{OI} from its \glsfmtlong{PDS} to the requesters.}
