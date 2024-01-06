@@ -1,3 +1,6 @@
+% import math notations
+\input{notations.tex}
+
 \usepackage[nopostdot,nonumberlist,automake,symbols]{glossaries-extra}
 
 \usepackage{ifthen}
@@ -7,7 +10,7 @@
 
 \makeglossaries
 
-% % only show link on first use
+% only show link on first use
 \GlsXtrEnableEntryUnitCounting{general}{0}{chapter}
 \renewcommand*{\glslinkcheckfirsthyperhook}{%
     \ifnum\glsentrycurrcount\glslabel>0
@@ -50,7 +53,6 @@
     }
 }
 
-
 \newdualentry{OW}{}{Open Web}{The next-generation Internet where information flows openly without any restrictions, as it is supposed to be.}
 
 \newdualentry{OI}{}{Open Information}{Information that is typically found across various types of networks, including decentralized, federated, and centralized networks that allow permissionless access.}
@@ -69,28 +71,32 @@
 
 \newdualentry{PDS}{}{Permissionless Data Source}{A repository of data that can be accessed without the need for authorization or authentication.}
 
-\newdualentry{NR}{R}{Network Rewards}{Tokens allocated by the RSS3 Network to incentivize network participants.}
+\newdualentry{NR}{\networkReward}{Network Rewards}{Tokens allocated by the RSS3 Network to incentivize network participants.}
+
+\newdualentry{OR}{\operationReward}{Operation Rewards}{Tokens allocated to \glsfmtlong{OP} by the RSS3 Network to incentivize network participants.}
+
+\newdualentry{SR}{\stakingReward}{Staking Rewards}{Tokens allocated to \glsfmtlong{SP} by the RSS3 Network to incentivize network participants.}
 
 \newdualentry{NO}{}{Node Operator}{An individual or organization that operates a Serving Node.}
 
 \newdualentry{NM}{}{Normal Mode}{The Node operates for the purpose of strenthening the Network, it receives request fees and \glsfmtlong{NR}.}
 
-\newdualentry{PGP}{P_p}{Public Good Pool}{A collective pool of staked \$RSS3 that is used to improve the RSS3 Network by assigning trust to Public Good Nodes.}
+\newdualentry{PGP}{\publicGoodPool}{Public Good Pool}{A collective pool of staked \$RSS3 that is used to improve the RSS3 Network by assigning trust to Public Good Nodes.}
 
 \newdualentry{PGM}{}{Public Good Mode}{The Node operates for the purpose of supporting Public Goods and strenthening the Network, it does not receive any request fees or \glsfmtlong{NR}.}
 
-\newdualentry{OP}{P_o}{Operating Pool}{A pool of \$RSS3 that consists of 1) Fees collected from serving Data Sub-layer requests; 2) \glsfmtlong{NR} allocated based on the Node's work; 3) Tax collected from its Staking Pool.}
+\newdualentry{OP}{\operationPool}{Operation Pool}{A pool of \$RSS3 that consists of 1) Fees collected from serving Data Sub-layer requests; 2) \glsfmtlong{NR} allocated based on the Node's work; 3) Tax collected from its Staking Pool.}
 
-\newdualentry{SP}{P_s}{Staking Pool}{A pool of staked \$RSS3 that is used to improve the RSS3 Network by assigning trust to Normal Nodes.}
+\newdualentry{SP}{\stakingPool}{Staking Pool}{A pool of staked \$RSS3 that is used to improve the RSS3 Network by assigning trust to Normal Nodes.}
 
 \newdualentry{R3N}{}{RSS3 Network}{A decentralized network that is formed by a DSL and a VSL.}
 
-\newdualentry{Epoch}{\epsilon}{epoch}{A period of time used as a reference to measure the \glsfmtlong{R3N}'s operation.}
+\newdualentry{Epoch}{\epoch}{Epoch}{A period of time used as a reference to measure the \glsfmtlong{R3N}'s operation.}
 
-\newdualentry{N}{N}{number of requests served on the \glsfmtlong{DSL}}{The metric that reflects the Node's service and is used to determine the allocation of \glsfmtlong{NR} into a Node's \glsfmtlong{OP}.}
+\newdualentry{N}{\node}{number of requests served on the \glsfmtlong{DSL}}{The metric that reflects the Node's service and is used to determine the allocation of \glsfmtlong{NR} into a Node's \glsfmtlong{OP}.}
 
-\newdualentry{Tax}{\tau}{Operating Tax}{A tax rate set by a Node's \glsfmtlong{OP}, collecting from the \glsfmtlong{NR} that are allocated to its \glsfmtlong{SP}.}
+\newdualentry{Tax}{\tax}{Operation Tax}{A tax rate set by a Node's \glsfmtlong{OP}, collecting from the \glsfmtlong{NR} that are allocated to its \glsfmtlong{SP}.}
 
-\newdualentry{Fee}{F}{Request fee}{A fee paid to \glspl{SN} for delivering \gls{OI} from the \glsfmtlong{PDS} to the requesters.}
+\newdualentry{Fee}{\fee}{Fee}{A fee paid to \glspl{SN} for delivering \gls{OI} from the \glsfmtlong{PDS} to the requesters.}
 
 \newdualentry{FR}{F_r}{Request rewards}{A fee paid to \glspl{SN} for delivering \gls{OI} from the \glsfmtlong{PDS} to the requesters.}

@@ -3,7 +3,7 @@
 \contentsline {subsection}{\numberline {\mbox {II-A}}\$RSS3}{1}{subsection.2.1}%
 \contentsline {subsection}{\numberline {\mbox {II-B}}\Glsxtrtitlefull {Epoch}}{1}{subsection.2.2}%
 \contentsline {section}{\numberline {III}\glsxtrtitlelong {DSL}}{1}{section.3}%
-\contentsline {subsection}{\numberline {\mbox {III-A}}RSS3 \glsxtrtitlefull {SN}}{1}{subsection.3.1}%
+\contentsline {subsection}{\numberline {\mbox {III-A}}RSS3 \glsxtrtitlefull {SN}}{2}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {\mbox {III-A}1}Indexing}{2}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {\mbox {III-A}2}Serving}{2}{subsubsection.3.1.2}%
 \contentsline {subsection}{\numberline {\mbox {III-B}}RSS3 \glsxtrtitlefull {GI}}{2}{subsection.3.2}%
@@ -15,11 +15,15 @@
 \contentsline {subsection}{\numberline {\mbox {IV-A}}Node Operation}{3}{subsection.4.1}%
 \contentsline {subsection}{\numberline {\mbox {IV-B}}Node Staking}{3}{subsection.4.2}%
 \contentsline {subsection}{\numberline {\mbox {IV-C}}Reward Pools}{3}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {\mbox {IV-C}1}\glsxtrtitlelong {OP} (\ensuremath {P_o})}{3}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {\mbox {IV-C}2}\glsxtrtitlelong {SP} (\ensuremath {P_s})}{3}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {\mbox {IV-C}3}\glsxtrtitlelong {PGP} (\ensuremath {P_p})}{3}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {\mbox {IV-C}1}\glsxtrtitlelong {OP} (\ensuremath {\ensuremath {P}_\ensuremath {o}})}{3}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {\mbox {IV-C}2}\glsxtrtitlelong {SP} (\ensuremath {\ensuremath {P}_\ensuremath {s}})}{3}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {\mbox {IV-C}3}\glsxtrtitlelong {PGP} (\ensuremath {\ensuremath {P}_\ensuremath {p}})}{3}{subsubsection.4.3.3}%
 \contentsline {section}{\numberline {V}Tokenomics}{3}{section.5}%
-\contentsline {section}{\numberline {VI}Conclusion}{3}{section.6}%
-\contentsline {section}{Glossary}{3}{section*.5}%
-\contentsline {section}{References}{4}{section*.5}%
+\contentsline {subsection}{\numberline {\mbox {V-A}}\glsxtrtitlefull {NR}}{4}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {\mbox {V-A}1}\glsxtrtitlefull {OR}}{4}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {\mbox {V-A}2}\glsxtrtitlefull {SR}}{4}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {\mbox {V-B}}Slashing}{4}{subsection.5.2}%
+\contentsline {section}{\numberline {VI}Conclusion}{4}{section.6}%
+\contentsline {section}{Glossary}{4}{section*.5}%
 \contentsfinish 
+\contentsline {section}{References}{5}{section*.5}%

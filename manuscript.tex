@@ -12,6 +12,10 @@
 \usepackage[table]{xcolor}
 \usepackage{tabulary}
 
+% % math equation
+\usepackage{amsmath}
+
+% title spacing
 \usepackage{titlesec}
 \def\thesubsubsectiondis{\unskip\arabic{subsubsection})}
 \titlespacing*{\subsubsection}{0pt}{10pt plus 4pt minus 2pt}{4pt plus 2pt minus 2pt}
@@ -46,6 +50,8 @@
 
 \end{abstract}
 
+\ensuremath{\work}
+
 \input{sections/intro}
 
 \input{sections/network}
@@ -58,10 +64,7 @@
 
 \input{sections/conclusion}
 
-
 \printglossary[type=main,title=Glossary, toctitle=Glossary]
-
-
 
 \bibliographystyle{plain}
 \bibliography{references}

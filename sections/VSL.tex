@@ -7,9 +7,10 @@ It is responsible for handling value derived from \glsfmtlong{OI} activities and
 In this section, we focus on the intentions behind the \gls{VSL}'s incentive mechanism, which is designed to promote stable Node Operations to maintain the Network, and to encourage network participants to secure the Network via staking \$RSS3.
 We introduce the detailed tokenomics separately in \Cref{sec:tokenomics}.
 
-The \glsfmtlong{R3N} allocates a portion of \$RSS3 total supply to incentivize network participants, the \glsfirst{NR}, 
-allocated into two reward pools: the \glsfirst{OP} and the \glsfirst{SP} for Normal Nodes, or the \glsfirst{PGP} for Public Good Nodes.
-See \Cref{fig:network-rewards} and \Cref{subsec:reward_pools} for details.
+The \glsfmtlong{R3N} allocates a portion of \$RSS3 total supply to incentivize network participants, referred to as the \glsfirst{NR}, 
+are allocated into reward pools: the \glsfirst{OP} and the \glsfirst{SP} for Normal Nodes, or the \glsfirst{PGP} for Public Good Nodes.
+See \Cref{fig:network-rewards} for an illustration and \Cref{subsec:reward_pools} for details on Reward Pools.
+The calculation of \glsfmtlong{NR} are described in \Cref{sec:tokenomics}.
 
 \subsection{Node Operation}
 \Glsfmtlong{NO}s are incentivized to operate and maintain the Network by receiving \$RSS3 as rewards.
@@ -17,7 +18,7 @@ See \Cref{fig:network-rewards} and \Cref{subsec:reward_pools} for details.
     \item Anyone can become a \glsfmtlong{NO} to launch an RSS3 Node and join the RSS3 Network without requiring prior permission.
     \item A \glsfmtlong{NO} has the ability to configure Node's coverage, which directly influences the Node's capability to respond to various types of requests. A broader coverage means more computational resources are required, and a higher chance of receiving requests.
     \item A Node can be operated in either a Normal mode or a Public Good mode. A Normal Node is eligible for \glsfmtlong{NR}, but requires a deposit of \$RSS3. A Public Good Node is ineligible for \glsfmtlong{NR}, but requires no deposit.
-    \item A Normal Node has a corresponding \glsentrysymbol{OP} and a \glsentrysymbol{SP}. All Public Good Nodes collectively share a single \glsentrysymbol{PGP}.
+    \item A Normal Node has a corresponding \operationPool\ and a \stakingPool. All Public Good Nodes collectively share a single \publicGoodPool.
 \end{enumerate}
 
 \subsection{Node Staking}
@@ -37,9 +38,9 @@ Network participants are incentivized to stake \$RSS3 to secure the Network by r
             Who can operate? & Anyone & Anyone \\ \hline
             Can \glsfmtlong{NO} specify the coverage? & Yes & Yes \\ \hline
             Is a deposit required? & Yes & No \\ \hline
-            Is the deposit considered as staking, making it eligible for rewards from its own \glsentrysymbol{SP}? & No & N/A \\ \hline
-            Will the Node be slashed? & Yes, its deposit and \glsentrysymbol{SP} will be slashed. A Node may be demoted to receive fewer requests. & No, but a Node may be demoted to receive fewer requests. \\ \hline
-            Does the Node accept staking? & Yes. The staked tokens go to the Node’s \glsentrysymbol{SP}. RSS3-X (X being the Node’s name) Chips are issued to the stakers after staking. & No, as such a Node does not have a \glsfmtlong{SP}. Instead, stakers stake to a \glsfmtlong{PGP}. RSS3-Public Good Chips are issued to the stakers after staking. \\ \hline
+            Is the deposit considered as staking, making it eligible for rewards from its own \stakingPool? & No & N/A \\ \hline
+            Will the Node be slashed? & Yes, its deposit and \stakingPool will be slashed. A Node may be demoted to receive fewer requests. & No, but a Node may be demoted to receive fewer requests. \\ \hline
+            Does the Node accept staking? & Yes. The staked tokens go to the Node’s \stakingPool. RSS3-X (X being the Node’s name) Chips are issued to the stakers after staking. & No, as such a Node does not have a \glsfmtlong{SP}. Instead, stakers stake to a \glsfmtlong{PGP}. RSS3-Public Good Chips are issued to the stakers after staking. \\ \hline
             Can \glsfmtlong{NO} set an \glsfirst{Tax}? & Yes & No, a universal tax is determined by the Network. \\ \hline
             Does it have an \glsfmtlong{OP}? & Yes & No, operator rewards go to [X] \\ \hline
             Does it have a \glsfmtlong{SP}? & Yes & No, but a \glsfmtlong{PGP} with a universal incentive rate. \\ \hline
@@ -66,25 +67,28 @@ This section introduces the three reward pools: the \glsfirst{OP}, the \glsfirst
 \end{figure}
 }
 
-\subsubsection{\glsfmtlong{OP} (\glsentrysymbol{OP})}
-\label{subsubsec:operating_pool}
+\subsubsection{\glsfmtlong{OP} (\operationPool)}
+\label{subsubsec:operation_pool}
 
-An \glsfirst{OP} is used to store tokens that are allocated to a Normal Node from three sources: 1) the \gls{Fee} collected from requests served on the \gls{DSL}, denoted \glsentrysymbol{N}; 3) the \glsfmtlong{NR} allocated based on the Node’s work; 3) the \gls{Tax} collected from the Node's \glsfirst{SP}.
+An \glsfirst{OP} is used to store tokens that are allocated to a Normal Node from three sources: 1) the \gls{Fee} collected from requests served on the \gls{DSL}, denoted \work; 3) the \glsfmtlong{NR} allocated based on the Node’s work; 3) the \gls{Tax} collected from the Node's \stakingPool.
 
-The allocation of \glsfmtlong{NR} into a Node's \glsentrysymbol{OP} at the end of each epoch, is determined by the \glsfmtlong{N} (\glsentrysymbol{N}), in proportion to the total number of requests served on the \gls{DSL}.
+The allocation of \glsfmtlong{NR} into a Node's \operationPool\ at the end of each epoch, is determined by the \glsfmtlong{N} (\work), in proportion to the total number of requests served on the \gls{DSL}.
 
-The \glsfmtlong{NO} can set a tax rate, \glsentrysymbol{Tax}, which is applied to its \glsentrysymbol{SP}.
-The tax applies to the \glsfmtlong{NR} allocated to the Node's \glsentrysymbol{SP}, not the staked tokens (REP-1: Chip Redemption Tax).
+The \glsfmtlong{NO} can set a tax rate, \tax, which is applied to its \stakingPool.
+The tax applies to the \glsfmtlong{NR} allocated to the Node's \stakingPool, not the staked tokens (REP-1: Chip Redemption Tax).
 
-Only the corresponding \glsfmtlong{NO} can withdraw tokens from its \glsentrysymbol{OP}, and the withdrawal is subject to a waiting period imposed by the Network.
+Only the corresponding \glsfmtlong{NO} can withdraw tokens from its \operationPool, and the withdrawal is subject to a waiting period imposed by the Network.
 
-\subsubsection{\glsfmtlong{SP} (\glsentrysymbol{SP})}
+\subsubsection{\glsfmtlong{SP} (\stakingPool)}
+\label{subsubsec:staking_pool}
 
-A \glsfirst{SP} is used to store staked tokens for a Normal Node. Network participants can stake tokens into a Normal Node's \glsentrysymbol{SP} to increase the Node's chance to receive requests on the \gls{DSL}.
+A \glsfirst{SP} is used to store staked tokens for a Normal Node. Network participants can stake tokens into a Normal Node's \stakingPool\ to increase the Node's chance to receive requests on the \gls{DSL}.
 
-The allocation of \glsfmtlong{NR} into a Node's \glsentrysymbol{SP} at the end of each epoch, is determined by the size of the Node's \glsentrysymbol{SP}, in proportion to the total staked tokens on the \gls{VSL}.
+The allocation of \glsfmtlong{NR} into a Node's \stakingPool\ at the end of each epoch, is determined by the size of the Node's \stakingPool, in proportion to the total staked tokens on the \gls{VSL}.
 A tax is then applied to the received Rewards, with the rate set by its \glsfmtlong{NO}.
 
-\subsubsection{\glsfmtlong{PGP} (\glsentrysymbol{PGP})}
+\subsubsection{\glsfmtlong{PGP} (\publicGoodPool)}
 
 A \glsfirst{PGP} is a unique reward pool that is shared by all Public Good Nodes.
+
+As Public Good Nodes do not have their own \stakingPool, network participants stake into the \publicGoodPool\ to assign their trust to any Public Good Node.

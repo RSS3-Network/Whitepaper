@@ -1,6 +1,39 @@
-\section{Tokenomics} 
+\section{Tokenomics}
 \label{sec:tokenomics}
 
-In this seciton, we introduce the detailed tokenomics of the \glsfmtlong{R3N}.
+In this seciton, we introduce the detailed tokenomics of the \glsfmtlong{R3N}. We present the \glsfmtlong{NR}'s calculation and distribution formulas, and the slashing mechanism employed to enforce network security and stability.
 
-\$RSS3, serving as the Network's native utility token, is utilized across all components of the Network, including its various Sub-layers.
+\subsection{\glsfmtfull{NR}}
+IN \Cref{sec:VSL}, we describe the intentions behind the \gls{VSL}'s incentive mechanism, here we introduce the detailed \glsfmtlong{NR} calculation and distribution formulas separately.
+
+The \glsfmtlong{NR} \networkReward\ consists of three parts: 
+\begin{equation}
+    \label{eq:network_rewards}
+    \networkReward = (\operationReward + \stakingReward) + \publicGoodReward
+\end{equation}
+
+See \Cref{fig:network-rewards} for an illustration.
+
+\subsubsection{\glsfmtfull{OR}}
+To encourage Normal Nodes to operate and maintain the Network, \operationReward\ is allocated to a Node's \operationPool\ in proportion to the fees collected from its work contribution.
+
+\begin{equation}
+    \label{eq:operation_weight}
+    \tilde{\fee}_\nodeAtEpoch = \log_{2}(\frac{\fee_\nodeAtEpoch}{\sum_{x=0}^{\infty} \fee_{x, \epoch}} + 1) * G
+\end{equation}
+
+$\tilde{\fee}_\nodeAtEpoch$ denotes the normalized work contribution for a given Node \node, at the end of a given epoch $\epoch$. $G$ is a constant equal to $\ln(2) \approx 0.693147$ used to offset the effect of replacing $\ln$ with $\log_2$, as the former is more costly in terms of gas when it comes to on-chain computation.
+
+\begin{equation}
+    \label{eq:operation_rewards}
+    \networkReward_{\operation|\node, \epoch} = \frac{\tilde{\fee}_{\node, \epoch}}{\sum_{x=0}^{\infty} \tilde{\fee}_{x, \epoch}} * \networkReward_{\operation, \epoch}
+\end{equation}
+
+$\networkReward_{\operation|\node, \epoch}$ therefore denotes the Operation Rewards for a given Node \node, at the end of a given epoch $\epoch$.
+
+\subsubsection{\glsfmtfull{SR}}
+
+To encourage participation from all network participants to increase the Network's reliability, \stakingReward\ is allocated to a Node's \stakingPool\ in proportion to the amount of staked tokens in the entire Network.
+
+
+\subsection{Slashing}
