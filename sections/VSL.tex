@@ -7,7 +7,7 @@ It is responsible for handling value derived from \glsfmtlong{OI} activities and
 In this section, we focus on the intentions behind the \gls{VSL}'s incentive mechanism, which is designed to promote stable Node Operations to maintain the Network, and to encourage network participants to secure the Network via staking \$RSS3.
 We introduce the detailed tokenomics separately in \Cref{sec:tokenomics}.
 
-The \glsfmtlong{R3N} allocates a portion of \$RSS3 total supply to incentivize network participants, referred to as the \glsfirst{NR}, 
+The \glsfmtlong{R3N} allocates a portion of \$RSS3 total supply to incentivize network participants, referred to as the \glsfirst{NR},
 are allocated into reward pools: the \glsfirst{OP} and the \glsfirst{SP} for Normal Nodes, or the \glsfirst{PGP} for Public Good Nodes.
 See \Cref{fig:network-rewards} for an illustration and \Cref{subsec:reward_pools} for details on Reward Pools.
 The calculation of \glsfmtlong{NR} are described in \Cref{sec:tokenomics}.
@@ -35,15 +35,38 @@ Network participants are incentivized to stake \$RSS3 to secure the Network by r
         \begin{tabulary}{\textwidth}{|p{6cm}|p{5cm}|p{5cm}|}
             \hline
             & \textbf{Node in Normal Mode} & \textbf{Node in Public Good mode} \\ \hline
-            Who can operate? & Anyone & Anyone \\ \hline
-            Can \glsfmtlong{NO} specify the coverage? & Yes & Yes \\ \hline
-            Is a deposit required? & Yes & No \\ \hline
-            Is the deposit considered as staking, making it eligible for rewards from its own \stakingPool? & No & N/A \\ \hline
-            Will the Node be slashed? & Yes, its deposit and \stakingPool will be slashed. A Node may be demoted to receive fewer requests. & No, but a Node may be demoted to receive fewer requests. \\ \hline
-            Does the Node accept staking? & Yes. The staked tokens go to the Node’s \stakingPool. RSS3-X (X being the Node’s name) Chips are issued to the stakers after staking. & No, as such a Node does not have a \glsfmtlong{SP}. Instead, stakers stake to a \glsfmtlong{PGP}. RSS3-Public Good Chips are issued to the stakers after staking. \\ \hline
-            Can \glsfmtlong{NO} set an \glsfirst{Tax}? & Yes & No, a universal tax is determined by the Network. \\ \hline
-            Does it have an \glsfmtlong{OP}? & Yes & No, operator rewards go to [X] \\ \hline
-            Does it have a \glsfmtlong{SP}? & Yes & No, but a \glsfmtlong{PGP} with a universal incentive rate. \\ \hline
+
+            Who can operate? &
+            Anyone &
+            Anyone \\ \hline
+
+            Is a deposit required for operating a Node? &
+            Yes &
+            No \\ \hline
+
+            Is the deposit considered as staking, making it eligible for rewards from its own \stakingPool? &
+            No &
+            N/A \\ \hline
+
+            Will the Node be slashed? &
+            Yes, its deposit and \stakingPool will be slashed. A Node may be demoted to receive fewer requests.
+            & No, but a Node may be demoted to receive fewer requests. \\ \hline
+
+            Does the Node accept staking? &
+            Yes. The staked tokens go to the Node’s \stakingPool. RSS3-X (X being the Node’s name) Chips are issued to the stakers after staking. &
+            No, as such a Node does not have a \stakingPool. Instead, stakers stake to the \publicGoodPool. RSS3-Public Good Chips are issued to the stakers after staking. \\ \hline
+
+            Can the \glsfmtlong{NO} set a \tax? &
+            Yes &
+            No, a universal tax is determined by the Network. \\ \hline
+
+            Does it have an \glsfmtlong{OP} \operationPool? &
+            Yes &
+            No, its \glsfmtlong{OR} go to [X] \\ \hline
+
+            Does it have a \glsfmtlong{SP} \stakingPool? &
+            Yes &
+            No, but a \glsfmtlong{PGP} with a universal incentive rate. \\ \hline
         \end{tabulary}
     }
     \caption{Comparison of two Node operation modes.}
@@ -56,16 +79,16 @@ Network participants are incentivized to stake \$RSS3 to secure the Network by r
 
 This section introduces the three reward pools: the \glsfirst{OP}, the \glsfirst{SP}, and the \glsfirst{PGP}. See \Cref{fig:network-rewards} for an illustration.
 
-{
-\begin{figure}[tb!]
-    \centering
-    \includegraphics[width=0.9\columnwidth]{figures/network-rewards.png}
-    \caption{RSS3 \glsfmtlong{NR} distribution.
-    The \glsfmtlong{NR} are allocated into two reward pools: the \glsfirst{OP} and the \glsfirst{SP} for Normal Nodes, or the \glsfirst{PGP} for Public Good Nodes.
-    See \Cref{subsec:reward_pools} for details.}
-    \label{fig:network-rewards}
-\end{figure}
-}
+    {
+        \begin{figure}[tb!]
+            \centering
+            \includegraphics[width=0.9\columnwidth]{figures/network-rewards.png}
+            \caption{RSS3 \glsfmtlong{NR} distribution.
+                The \glsfmtlong{NR} are allocated into two reward pools: the \glsfirst{OP} and the \glsfirst{SP} for Normal Nodes, or the \glsfirst{PGP} for Public Good Nodes.
+                See \Cref{subsec:reward_pools} for details.}
+            \label{fig:network-rewards}
+        \end{figure}
+    }
 
 \subsubsection{\glsfmtlong{OP} (\operationPool)}
 \label{subsubsec:operation_pool}
