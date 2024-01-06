@@ -6,34 +6,79 @@ In this seciton, we introduce the detailed tokenomics of the \glsfmtlong{R3N}. W
 \subsection{\glsfmtfull{NR}}
 IN \Cref{sec:VSL}, we describe the intentions behind the \gls{VSL}'s incentive mechanism, here we introduce the detailed \glsfmtlong{NR} calculation and distribution formulas separately.
 
-The \glsfmtlong{NR} \networkReward\ consists of three parts: 
+The \glsfmtlong{NR} \networkReward\ consists of three parts:
 \begin{equation}
     \label{eq:network_rewards}
     \networkReward = (\operationReward + \stakingReward) + \publicGoodReward
 \end{equation}
 
-See \Cref{fig:network-rewards} for an illustration.
+See \Cref{fig:network-rewards} for an illustration. The allocation to each part is determined by the Network, and is subject to potential future changes.
 
 \subsubsection{\glsfmtfull{OR}}
-To encourage Normal Nodes to operate and maintain the Network, \operationReward\ is allocated to a Node's \operationPool\ in proportion to the fees collected from its work contribution.
+To encourage Normal Nodes to operate and maintain the Network, \operationReward\ is allocated to a Node's \operationPool\ in proportion to its \glsfirst{Fee} collected on the \gls{DSL} during the last \epoch.
 
 \begin{equation}
     \label{eq:operation_weight}
-    \tilde{\fee}_\nodeAtEpoch = \log_{2}(\frac{\fee_\nodeAtEpoch}{\sum_{x=0}^{\infty} \fee_{x, \epoch}} + 1) * G
+    \tilde{\fee}_\nodeAtEpoch =
+    \log_{2}
+    (
+    \frac{\fee_\nodeAtEpoch}
+    {\sum_{x=0}^{\infty} \fee_{x, \epoch}} + 1
+    ) * G
 \end{equation}
 
-$\tilde{\fee}_\nodeAtEpoch$ denotes the normalized work contribution for a given Node \node, at the end of a given epoch $\epoch$. $G$ is a constant equal to $\ln(2) \approx 0.693147$ used to offset the effect of replacing $\ln$ with $\log_2$, as the former is more costly in terms of gas when it comes to on-chain computation.
+$\tilde{\fee}_\nodeAtEpoch$ denotes the normalized work contribution for a given Normal Node \node, at the end of a given epoch $\epoch$. $G$ is a constant equal to $\ln(2) \approx 0.693147$ used to offset the effect of replacing $\ln$ with $\log_2$, as the former is more costly in terms of gas when it comes to on-chain computation.
 
 \begin{equation}
     \label{eq:operation_rewards}
-    \networkReward_{\operation|\node, \epoch} = \frac{\tilde{\fee}_{\node, \epoch}}{\sum_{x=0}^{\infty} \tilde{\fee}_{x, \epoch}} * \networkReward_{\operation, \epoch}
+    \networkReward_{\operation|\node, \epoch} =
+    \frac{\tilde{\fee}_{\node, \epoch}}
+    {\sum_{x=0}^{\infty} \tilde{\fee}_{x, \epoch}}
+    * \networkReward_{\operation, \epoch}
 \end{equation}
 
-$\networkReward_{\operation|\node, \epoch}$ therefore denotes the Operation Rewards for a given Node \node, at the end of a given epoch $\epoch$.
+$\networkReward_{\operation|\node, \epoch}$ therefore denotes the Operation Rewards for a given Normal Node \node, at the end of a given epoch $\epoch$.
+
 
 \subsubsection{\glsfmtfull{SR}}
 
-To encourage participation from all network participants to increase the Network's reliability, \stakingReward\ is allocated to a Node's \stakingPool\ in proportion to the amount of staked tokens in the entire Network.
+To encourage participation from all network participants to increase the Network's reliability, \stakingReward\ is allocated to a Normal Node's \stakingPool\ in proportion to the amount of staked tokens in the entire Network during the last \epoch.
 
+\begin{equation}
+    \label{eq:staking_rewards}
+    \networkReward_{\staking|\node, \epoch} =
+    \frac{\pool_{\staking|\node, \epoch}}
+    {\sum_{x=0}^{\infty} \pool_{\staking|x, \epoch}}
+    * \networkReward_{\staking, \epoch}
+\end{equation}
+
+$\networkReward_{\staking|\node, \epoch} * (1 - \tax_{\node, \epoch})$ therefore denotes the Staking Rewards for a given Normal Node \node, at the end of a given epoch $\epoch$.
+
+\subsubsection{\glsfmtfull{PGP}}
+
+To encourage participation from all network participants to increase the Network's reliability and support Public Goods provision, \publicGoodReward\ is allocated to the \publicGoodPool\ in proportion to the amount of staked tokens in the entire Network during the last \epoch.
+
+\begin{equation}
+    \label{eq:trusting_rewards}
+    \networkReward_{\publicGood|\node, \epoch} =
+    \frac{\pool_{\publicGood|\node, \epoch}}
+    {\sum_{x=0}^{\infty} \pool_{\publicGood|x, \epoch}}
+    * \networkReward_{\publicGood, \epoch}
+\end{equation}
+
+$\networkReward_{\publicGood|\node, \epoch}$ therefore denotes the Trusting Rewards for a given Public Good Node \node, at the end of a given epoch $\epoch$.
+
+\subsubsection{Taxation (\tax)}
+
+The total amount of tokens allocated to a Normal Node's \operationPool\ for a given epoch $\epoch$ is therefore:
+
+\begin{equation}
+    \networkReward_{total|\node, \epoch} = 
+    \networkReward_{\operation|\node, \epoch}
+    + \networkReward_{\staking|\node, \epoch} * \tax_{\node, \epoch}
+    + \fee_{\node, \epoch}
+\end{equation}
+
+\subsection{Reliability Score}
 
 \subsection{Slashing}
