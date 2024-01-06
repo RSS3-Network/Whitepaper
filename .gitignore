@@ -1,26 +1,34 @@
 
-manuscript.aux
+*.aux
 
-manuscript.bbl
+*.bbl
 
-manuscript.blg
+*.blg
 
-manuscript.fdb_latexmk
+*.fdb_latexmk
 
-manuscript.fls
+*.fls
 
-manuscript.glo
+*.glo
 
-manuscript.ist
+*.ist
 
-manuscript.log
+*.log
 
-manuscript.out
+*.out
 
-manuscript.synctex.gz
+*.synctex.gz
 
-manuscript.gls
+*.gls
 
-manuscript.glg
+*.glg
 
 indent.log
+
+*.slg
+
+*.slo
+
+*.sls
+
+*.toc
