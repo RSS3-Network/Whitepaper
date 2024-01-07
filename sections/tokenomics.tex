@@ -53,7 +53,7 @@ In \Cref{sec:VSL}, we describe the intentions behind the \gls{VSL}'s incentive m
 The \glsfmtlong{NR} \networkReward\ consists of three parts:
 \begin{equation}
     \label{eq:network_rewards}
-    \networkReward = (\operationReward + \stakingReward) + \trustingReward
+    \networkReward = (\operationReward + \stakingReward) + \trustReward
 \end{equation}
 
 See \Cref{fig:network-rewards} for an illustration. The allocation to each part is determined by the Network, and is subject to potential future changes.
@@ -99,17 +99,17 @@ $\networkReward_{\staking|\node, \epoch} * (1 - \taxRate_{\node, \epoch})$ there
 
 \subsubsection{\glsfmtfull{TR}}
 
-To encourage participation from all network participants to increase the Network's reliability and support Public Goods provision, \trustingReward\ is allocated to the \publicGoodPool\ in proportion to the amount of entrusted tokens in the entire Network during the last \epoch.
+To encourage participation from all network participants to increase the Network's reliability and support Public Goods provision, \trustReward\ is allocated to the \publicGoodPool\ in proportion to the amount of entrusted tokens in the entire Network during the last \epoch.
 
 \begin{equation}
-    \label{eq:trusting_rewards}
-    \networkReward_{\trusting|\node, \epoch} =
-    \frac{\pool_{\trusting|\node, \epoch}}
-    {\sum_{x=0}^{\infty} \pool_{\trusting|x, \epoch}}
-    * \networkReward_{\trusting, \epoch}
+    \label{eq:trust_rewards}
+    \networkReward_{\trust|\node, \epoch} =
+    \frac{\pool_{\trust|\node, \epoch}}
+    {\sum_{x=0}^{\infty} \pool_{\trust|x, \epoch}}
+    * \networkReward_{\trust, \epoch}
 \end{equation}
 
-$\networkReward_{\trusting|\node, \epoch}$ therefore denotes the Trusting Rewards for a given Public Good Node \node, at the end of a given epoch $\epoch$.
+$\networkReward_{\trust|\node, \epoch}$ therefore denotes the \glsfmtlong{TR} for a given Public Good Node \node, at the end of a given epoch $\epoch$.
 
 \subsubsection{Taxation (\tax)}
 
