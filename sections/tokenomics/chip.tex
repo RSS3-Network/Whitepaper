@@ -1,19 +1,1 @@
 \subsection{Chip}
-
-\subsection{Slashing}
-
-Slashing is a mechanism used to enforce the Network's security and stability. It is applied to both Normal Nodes and Public Good Nodes, albeit in slightly different ways.
-
-A slashing occurs when a Node fails to meet the requirements set by the Network. This can be due to a variety of reasons, including but not limited to: 1) the Node is offline for an extended period of time; 2) the Node is not serving requests in a timely manner; 3) the Node is serving requests but with incorrect information.
-
-Should a slashing occur, the Node's \deposit\, \stakingPool\, and \networkReward\ will be slashed by precentages determined by the Network.
-The Node's \reliabilityScore\ will be negatively impacted, diminishing its likelihood of receiving requests on the \gls{DSL}.
-
-The disposition of the slashed tokens is as follows:
-\begin{itemize}
-    \item a portion of the slashed tokens will be burned, the amount is determined by the Network
-    \item a portion of the slashed tokens will go to the reporter, provided the Node’s misconduct was not auto-detected by the Network
-    \item the remaining portion of the slashed tokens will go to the \publicGoodPool
-\end{itemize}
-
-% TODO: add slashing into formulas
