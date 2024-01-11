@@ -1,7 +1,7 @@
 \subsection{\glsfmtfull{NR}}
 \label{subsec:network_rewards}
 
-In \Cref{sec:VSL}, we describe the intentions behind the \gls{VSL}'s incentive mechanism, here we introduce the detailed \glsfmtlong{NR} calculation and distribution formulas separately.
+In \Cref{sec:VSL}, we describe the intentions behind the \gls{VSL}'s incentive mechanism, here we introduce the detailed \glsfmtlong{NR} calculation and allocation formulas separately.
 
 The \glsfmtlong{NR} \networkReward\ consists of three parts:
 \begin{equation}
@@ -59,13 +59,13 @@ To encourage participation from all network participants to increase the Network
 
 \begin{equation}
     \label{eq:trust_rewards}
-    \networkReward_{\trust|\node, \epoch} =
-    \frac{\pool_{\trust|\node, \epoch}}
+    \networkReward_{\trust|\publicGoodNode, \epoch} =
+    \frac{\pool_{\trust|\publicGoodNode, \epoch}}
     {\sum_{x=0}^{\infty} \pool_{\trust|x, \epoch}}
     * \networkReward_{\trust, \epoch}
 \end{equation}
 
-$\networkReward_{\trust|\node, \epoch}$ therefore denotes the \glsfmtlong{TR} for a given Public Good Node \node, at the end of a given epoch $\epoch$.
+$\networkReward_{\trust|\publicGoodNode, \epoch}$ therefore denotes the \glsfmtlong{TR} for a given Public Good Node \publicGoodNode, at the end of a given epoch $\epoch$.
 
 \subsubsection{Taxation (\tax)}
 \label{subsubsec:taxation}
@@ -102,5 +102,8 @@ The total amount of tokens allocated to a Normal Node's \stakingPool\ for a give
 The total amount of tokens allocated to a Public Good Node's \publicGoodPool\ for a given epoch $\epoch$ is therefore:
 
 \begin{equation}
-    \networkReward_{\trust|\node, \epoch}
+    \networkReward_{\trust|\publicGoodNode, \epoch}
 \end{equation}
+
+
+Refer to \Cref{fig:network-rewards} for a visual illustration of the \glsfmtlong{NR} allocation.
