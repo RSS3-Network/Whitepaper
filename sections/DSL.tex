@@ -59,11 +59,13 @@ The unique architecture of the \gls{DSL} demands \glspl{GI} to be equipped with 
 With the \gls{DSL} being a permissionless Sublayer, the quality needs to be maintained strictly to ensure \glsfmtlong{R3N}'s robustness and reliability.
 A \gls{GI} monitors the quality of \glspl{SN}, and slashes the \gls{SN} if it fails to meet the requirements.
 
-\subsubsection{Proof-on-Chain} A GI keeps track of the work and slash records of \glspl{SN}, and submits them to the \gls{VSL} for settlement and reward allocation.
+\subsubsection{Proof Onchain} A GI keeps track of the work and slash records of \glspl{SN}, and submits them to the \gls{VSL} for settlement and reward allocation.
 
 \subsection{Reliability Score} 
 
 A \gls{GI} routes requests to \glspl{SN} based on their information coverage and a \gls{RS}.
+The calculation of \reliabilityScore\ is based on a range of factors, including but not limited to the \gls{SN}'s uptime, work and slash records, operation deposit, and staking/trust pool size.
+\glspl{SN} with a higher \reliabilityScore\ have an increased likelihood of receiving requests.
 
 \subsection{\glsfmtfull{UMS}}
 \label{subsec:UMS}
