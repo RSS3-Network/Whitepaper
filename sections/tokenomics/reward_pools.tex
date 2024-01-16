@@ -3,17 +3,6 @@
 
 This section introduces the three reward pools: the \glsfirst{OP}, the \glsfirst{SP}, and the \glsfirst{PGP}. See \Cref{fig:network-rewards} for an illustration.
 
-    {
-        \begin{figure*}[htb!]
-            \centering
-            \includegraphics[width=\linewidth]{figures/network-rewards.png}
-            \caption{RSS3 \glsfmtlong{NR} allocation.
-                The \glsfmtlong{NR} are allocated differently to Normal Nodes and Public Good Nodes.
-                See \Cref{subsec:reward_pools} for details.}
-            \label{fig:network-rewards}
-        \end{figure*}
-    }
-
 \subsubsection{\glsfmtlong{OP} (\operationPool)}
 \label{subsubsec:operation_pool}
 
@@ -23,8 +12,9 @@ An \glsfirst{OP} is used to store tokens that are allocated to a Normal Node fro
     \item The \gls{Tax} collected from the Node's \stakingPool
 \end{enumerate}
 
-The \glsfmtlong{NO} can set a tax rate, \taxRate, which is applied to its \stakingPool.
-The tax applies to the \glsfmtlong{NR} allocated to the Node's \stakingPool, not the staked tokens. See \Cref{subsubsec:taxation}.
+The \glsfmtlong{NO} can set a tax rate, \taxRate, which is applied to its \stakingPool, in conjunction with its \deposit\ to determine the amount of \gls{Tax} collected from its \stakingPool.
+See \Cref{subsubsec:taxation}.
+The tax applies to the \glsfmtlong{NR} allocated to the Node's \stakingPool, not the staked tokens.
 
 Only the corresponding \glsfmtlong{NO} can withdraw tokens from its \operationPool, and the withdrawal is subject to a waiting period imposed by the Network.
 
@@ -39,7 +29,7 @@ The allocation of \glsfmtlong{NR} into a Node's \stakingPool\ at the end of each
     \item \gls{SR}, the Node's \stakingPool\ size in proportion to the total staked tokens on the \gls{VSL} (See \Cref{subsubsec:operation_rewards})
 \end{enumerate}
 
-A tax \tax\ is then applied to the received Rewards, with the rate set by its \glsfmtlong{NO}.
+A tax \tax\ set by its \glsfmtlong{NO} is then applied to the received Rewards.
 
 \subsubsection{\glsfmtlong{PGP} (\publicGoodPool)}
 
