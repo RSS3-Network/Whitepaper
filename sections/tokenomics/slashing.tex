@@ -1,11 +1,22 @@
-\subsection{Slashing}
+\subsection{Slashing Mechanism}
 
-Slashing is a mechanism used to enforce the Network's security and stability. It is applied to both Normal Nodes and Public Good Nodes, albeit in slightly different ways.
+The slashing mechanism is used to enforce the Network's security and stability.
+It is applied to both Normal Nodes and Public Good Nodes, albeit in slightly different ways.
 
-A slashing occurs when a Node fails to meet the requirements set by the Network. This can be due to a variety of reasons, including but not limited to: 1) the Node is offline for an extended period of time; 2) the Node is not serving requests in a timely manner; 3) the Node is serving requests but with incorrect information.
+\subsubsection{Demotion}
+A demotion is automatically triggered when a Node failed to meet the requirements set by the Network.
+This can be due to a variety of reasons, including but not limited to: 1) the Node is offline for an extended period of time; 2) the Node is not serving requests in a timely manner; 3) the Node is serving requests but with incorrect information.
 
-Should a slashing occur, the Node's \deposit\%, \stakingPool\%, and \networkReward\ will be slashed by precentages determined by the Network.
 The Node's \reliabilityScore\ will be negatively impacted, diminishing its likelihood of receiving requests on the \gls{DSL}.
+This in turn will reduce the Node's potential \operationReward\ and \stakingReward\ allocated from the \gls{VSL}.
+
+
+\subsubsection{Slashing}
+
+A slashing is automatically triggered when a Node is repeatedly demoted.
+Should a slashing occur, the Node's \operationPool\ and \stakingPool\ will be slashed by precentages determined by the Network. Public Good Nodes are not subject to token slashing.
+
+The Node's \reliabilityScore\ will be set to 0, effectively preventing it from receiving requests on the \gls{DSL} during the current epoch.
 
 The disposition of the slashed tokens is as follows:
 \begin{itemize}
@@ -14,4 +25,5 @@ The disposition of the slashed tokens is as follows:
     \item the remaining portion of the slashed tokens will go to the \publicGoodPool
 \end{itemize}
 
-% TODO: add slashing into formulas7
+\subsubsection{Challenge}
+When a Node is slashed, its \glsfmtlong{NO} has the ability to challenge the slashing within a certain period of time. A successful challenge will result in the slashed tokens being returned to the Node's \operationPool\ and \stakingPool.
