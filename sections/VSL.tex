@@ -1,77 +1,28 @@
 \section{\glsfmtlong{VSL}}
 \label{sec:VSL}
 
-
-
-The \glsfirst{VSL}, commonly referred to as the RSS3 Chain, is an Ethereum Layer 2 blockchain built with OP Stack using Celestia as the data availability layer.
+The \glsfirst{VSL} is an Ethereum Layer 2 blockchain built with a customized OP Stack using Celestia as the Data Availability layer.
 It is responsible for handling value derived from \glsfmtlong{OI} activities and applications, establishing a healthy ownership economy for the Network.
 
-In this section, we focus on the intentions behind the \gls{VSL}'s incentive mechanism, which is designed to promote stable Node Operations to maintain the Network, and to encourage network participants to secure the Network via staking \$RSS3.
-We introduce the detailed tokenomics separately in \Cref{sec:tokenomics}.
+\subsubsection{Ethereum Layer 2}
 
-The \glsfmtlong{R3N} allocates a portion of \$RSS3's total supply to incentivize network participants, referred to as the \glsfirst{NR},
-are allocated into reward pools: the \glsfirst{SP} for Normal Nodes, or the \glsfirst{PGP} for Public Good Nodes.
-See \Cref{fig:network-rewards} for an illustration and \Cref{subsec:reward_pools} for details on Reward Pools.
-The calculations of \glsfmtlong{NR} are described in \Cref{subsec:network_rewards}.
+Blockchain technology, by its inherent design, is adept at managing value and ownership through consensus mechanisms.
+Among various blockchain construction methodologies, we have chosen to establish an Ethereum Layer 2 solution.
+This preference is justified by the widespread adoption of Ethereum's EVM (Ethereum Virtual Machine) for smart contract deployment, its substantial potential for liquidity, and the existing issuance of \$RSS3 on the Ethereum Mainnet. 
+This strategic choice facilitates a seamless transition of \$RSS3 into a utility token for the RSS3 Mainnet.
 
-\subsection{Node Operation}
-\Glsfmtlong{NO}s are incentivized to operate and maintain the Network by receiving \$RSS3 as rewards.
-\begin{enumerate}
-    \item Anyone can become a \glsfmtlong{NO} to launch an RSS3 Node and join the RSS3 Network without requiring prior permission.
-    \item A \glsfmtlong{NO} has the ability to configure Node's coverage, which directly influences the Node's capability to respond to various types of requests. A broader coverage means more computational resources are required, and an increased likelihood of receiving requests.
-    \item A Node can be operated in either a Normal mode as \node, or a Public Good mode as \publicGoodNode. A Normal Node is eligible for \glsfmtlong{NR}, but requires a deposit of \$RSS3 into its \operationPool. A Public Good Node is ineligible for \glsfmtlong{NR}, but requires no deposit.
-    \item A Normal Node has a corresponding \operationPool\ and a \stakingPool. All Public Good Nodes collectively share a single \publicGoodPool.
-\end{enumerate}
+\subsubsection{Scaling}
+The \gls{VSL} is built with a customized OP Stack by RSS3 as its scaling solution.
+The stack is selected for its efficiency, robust ecosystem, and the shared vision of an open and decentralized future.
+The choice is further justified by the proven maturity of the Optimistic rollup technology, which is currently facilitating multiple Layer 2 solutions.
+To cater to the distinct requirements of the RSS3 Mainnet architecture, we have initiated a fork of the OP Stack and implemented necessary customizations.
 
-\subsection{Node Staking}
-Network participants are incentivized to stake \$RSS3 to secure the Network by receiving \$RSS3 as rewards.
-\begin{enumerate}
-    \item A Normal Node accepts staking into its \stakingPool, the amount of staked \$RSS3 signifies its quality. Higher quality Nodes has an increased likelihood of receiving requests.
-    \item A Public Good Node does not have Reward Pools and does not participate in any form of incentivization. Staking into a \glsfmtlong{PGP} is accepted, and the stakers can assign their trust to any Public Good Node. Higher trust Nodes has an increased likelihood of receiving requests.
-\end{enumerate}
+\subsubsection{Data Availability}
 
-{
-\renewcommand{\arraystretch}{1.5}
-\begin{table*}[h]
-    \resizebox{\textwidth}{!}{
-        \begin{tabulary}{\textwidth}{|p{6cm}|p{5cm}|p{5cm}|}
-            \hline
-            & \textbf{Node in Normal Mode} & \textbf{Node in Public Good mode} \\ \hline
+The \gls{VSL} is responsible for handling value derived from \gls{OI} activities and applications, and is therefore expecting a high volume of microtransactions.
+To further reduce the cost of these transactions, the \gls{VSL} adopts Celestia as its Data Availability layer, without compromising on security and decentralization.
 
-            Who can operate? &
-            Anyone &
-            Anyone \\ \hline
+\subsubsection{Native Token}
 
-            Is a deposit required for operating a Node? &
-            Yes &
-            No \\ \hline
-
-            Is the deposit considered as staking, making it eligible for rewards from its own \stakingPool? &
-            No &
-            N/A \\ \hline
-
-            Will the Node be slashed? &
-            Yes, its deposit and \stakingPool will be slashed. A Node may be demoted to receive fewer requests.
-            & No, but a Node may be demoted to receive fewer requests. \\ \hline
-
-            Does the Node accept staking? &
-            Yes. The staked tokens go to the Node’s \stakingPool. RSS3-X (X being the Node’s name) Chips are issued to the stakers after staking. &
-            No, as such a Node does not have a \stakingPool. Instead, stakers stake to the \publicGoodPool. RSS3-Public Good Chips are issued to the stakers after staking. \\ \hline
-
-            Can the \glsfmtlong{NO} set a tax \taxRate? &
-            Yes &
-            No, a universal tax is determined by the Network. \\ \hline
-
-            Does it have an \glsfmtlong{OP} \operationPool? &
-            Yes &
-            No, its \glsfmtlong{OR} go to [X] \\ \hline
-
-            Does it have a \glsfmtlong{SP} \stakingPool? &
-            Yes &
-            No, but a \glsfmtlong{PGP} with a universal incentive rate. \\ \hline
-        \end{tabulary}
-    }
-    \caption{Comparison of two Node Operation modes.}
-    \label{table:node_modes}
-\end{table*}
-}
+\$RSS3 is the native token of the \gls{VSL}.
+This makes the \gls{VSL} the first native gas Optimistic rollup L2 with Celestia as the DA layer.
