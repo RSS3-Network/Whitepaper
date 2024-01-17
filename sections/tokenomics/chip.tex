@@ -1,1 +1,25 @@
 \subsection{Chip}
+
+A Chip \chip\ is an ERC-721 Non-Fungible Tokens (NFTs) representing a network participant's stake in a particular Node.
+When a network participant stakes or entrusts tokens to a Node \node, the participant receives Chips RSS3-\node\ ($\chip_\node$) in return.
+
+\subsubsection{Minting}
+The number of Chips minted for a particular staking or entrusting \staking\trust\ is determined by:
+
+\begin{equation}
+    \label{eq:chip_supply}
+    \chip_{\node_\text{mint}} = 
+    \frac{\staking\trust * \max(1, \chip_{\node_\text{total}})}{\stakingPool}
+\end{equation}
+
+Where $\chip_{\node_\text{mint}} \in \mathbb Z_{> 0}$ is always a non-negative integer.
+
+\subsubsection{Redemption}
+A Chip can be redeemed for its underlying staked or entrusted tokens at any time, subject to a waiting period imposed by the Network.
+The redemption amount may be different from the original staking or entrusting amount due to the change of the underlying \stakingPool\ balance, which follows the same formula as \Cref{eq:chip_supply}:
+
+\begin{equation}
+    \label{eq:chip_redeem}
+    \staking\trust_{\text{redeem}} = 
+    \frac{\chip_{\node_\text{redeem}} * \stakingPool}{\max(1, \chip_{\node_\text{total}})}
+\end{equation}
