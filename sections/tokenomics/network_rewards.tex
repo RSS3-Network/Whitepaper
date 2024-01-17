@@ -81,6 +81,8 @@ The amount of tax collectible is capped at a maximum of \taxCap\ times the amoun
     * \taxRate_{\node, \epoch})
 \end{equation}
 
+For the \glsfmtlong{PGP}, the tax rate is set by the Network to collect donations to support Public Good initiatives and clauses.
+
 \subsubsection{Final Allocations}
 \label{subsubsec:allocation}
 
@@ -103,6 +105,7 @@ The total amount of tokens allocated to a Public Good Node's \publicGoodPool\ fo
 
 \begin{equation}
     \networkReward_{\trust|\publicGoodNode, \epoch}
+    - \tax_{\epoch}
 \end{equation}
 
 
