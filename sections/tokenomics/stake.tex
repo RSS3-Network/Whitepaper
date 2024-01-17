@@ -1,0 +1,83 @@
+
+\subsection{Staking, Trust and Chip}
+Network participants are incentivized to secure the Network by staking or entrusting their tokens to a \glsfmtlong{SN}.
+
+\subsubsection{Staking}
+
+A Normal Node accepts staking into its \stakingPool, the amount of staked \$RSS3 signifies its quality and reliability, this increases the likelihood of receiving requests for a Node.
+
+\subsubsection{Trust}
+
+A Public Good Node does not have a stakingPool and does not participate in any form of incentivization. Instead, network participants entrust such a Node, and their tokens are stored into a \glsfmtlong{PGP}. Higher trust Nodes has an increased likelihood of receiving requests.
+
+\subsubsection{Chip}
+
+A Chip \chip\ is an ERC-721 Non-Fungible Tokens (NFTs) representing a network participant's stake in a particular Node.
+When a network participant stakes or entrusts tokens to a Node \node, the participant receives Chips RSS3-\node\ ($\chip_\node$) in return.
+
+\paragraph{Minting}
+The number of Chips minted for a particular staking or entrusting \staking\trust\ is determined by:
+
+\begin{equation}
+    \label{eq:chip_supply}
+    \chip_{\node_\text{mint}} = 
+    \frac{\staking\trust * \max(1, \chip_{\node_\text{total}})}{\stakingPool}
+\end{equation}
+
+Where $\chip_{\node_\text{mint}} \in \mathbb Z_{> 0}$ is always a non-negative integer.
+
+\paragraph{Redemption}
+A Chip can be redeemed for its underlying staked or entrusted tokens at any time, subject to a waiting period imposed by the Network.
+The redemption amount may be different from the original staking or entrusting amount due to the change of the underlying \stakingPool\ balance, which follows the same formula as \Cref{eq:chip_supply}:
+
+\begin{equation}
+    \label{eq:chip_redeem}
+    \staking\trust_{\text{redeem}} = 
+    \frac{\chip_{\node_\text{redeem}} * \stakingPool}{\max(1, \chip_{\node_\text{total}})}
+\end{equation}
+
+% {
+% \renewcommand{\arraystretch}{1.5}
+% \begin{table*}[h]
+%     \resizebox{\textwidth}{!}{
+%         \begin{tabulary}{\textwidth}{|p{6cm}|p{5cm}|p{5cm}|}
+%             \hline
+%             & \textbf{Node in Normal Mode} & \textbf{Node in Public Good mode} \\ \hline
+
+%             Who can operate? &
+%             Anyone &
+%             Anyone \\ \hline
+
+%             Is a deposit required for operating a Node? &
+%             Yes &
+%             No \\ \hline
+
+%             Is the deposit considered as staking, making it eligible for rewards from its own \stakingPool? &
+%             No &
+%             N/A \\ \hline
+
+%             Will the Node be slashed? &
+%             Yes, its deposit and \stakingPool will be slashed. A Node may be demoted to receive fewer requests.
+%             & No, but a Node may be demoted to receive fewer requests. \\ \hline
+
+%             Does the Node accept staking? &
+%             Yes. The staked tokens go to the Node’s \stakingPool. RSS3-X (X being the Node’s name) Chips are issued to the stakers after staking. &
+%             No, as such a Node does not have a \stakingPool. Instead, stakers stake to the \publicGoodPool. RSS3-Public Good Chips are issued to the stakers after staking. \\ \hline
+
+%             Can the \glsfmtlong{NO} set a tax \taxRate? &
+%             Yes &
+%             No, a universal tax is determined by the Network. \\ \hline
+
+%             Does it have an \glsfmtlong{OP} \operationPool? &
+%             Yes &
+%             No, its \glsfmtlong{OR} go to [X] \\ \hline
+
+%             Does it have a \glsfmtlong{SP} \stakingPool? &
+%             Yes &
+%             No, but a \glsfmtlong{PGP} with a universal incentive rate. \\ \hline
+%         \end{tabulary}
+%     }
+%     \caption{Comparison of two Node Operation modes.}
+%     \label{table:node_modes}
+% \end{table*}
+% }
