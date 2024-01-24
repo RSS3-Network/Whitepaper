@@ -1,7 +1,7 @@
 \subsection{\glsfmtfull{NR}}
 \label{subsec:network_rewards}
 
-In this section we introduce the detailed \glsfmtlong{NR} calculation and allocation formulas.
+In this section, we introduce the detailed \glsfmtlong{NR} calculation and allocation formulas.
 
 The \glsfmtlong{NR} \networkReward\ consists of three parts:
 \begin{equation}
@@ -9,13 +9,13 @@ The \glsfmtlong{NR} \networkReward\ consists of three parts:
     \networkReward = (\operationReward + \stakingReward) + \trustReward
 \end{equation}
 
-See \Cref{fig:network-rewards} for an illustration. The allocation to each part is determined by the Network, and is subject to potential future changes.
+See \Cref{fig:network-rewards} for an illustration. The allocation to each part is determined by the Network and is subject to potential future changes.
 
 \subsubsection{\glsfmtfull{OR}}
 \label{subsubsec:operation_rewards}
 
 To encourage Normal Nodes to operate reliably and consistently to maintain the Network, \operationReward\ is allocated to a Node's \stakingPool\ in proportion to its \glsfirst{Fee} collected on the \gls{DSL} during the last \epoch.
-A higher quality of service attracts more requests, which in turn increases the amount of \networkReward allocated to the Node, as well as the taxable amount.
+A higher quality of service attracts more requests, which in turn increases the amount of \networkReward\ allocated to the Node, as well as the taxable amount.
 
 \begin{equation}
     \label{eq:operation_weight}
