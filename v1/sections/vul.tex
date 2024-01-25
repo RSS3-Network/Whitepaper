@@ -1,0 +1,25 @@
+\section{Vulnerability}
+
+\subsection{Collusion}
+In an RSS3 Network, RSS3 Files are hosted by subgroups of SNs for redundancy and fault tolerance. Although the subgroup design creates the bedrock for potential collusive behaviors, the design itself also acts as the first layer to prevent those behaviors since an internal consensus is required to process all client requests. A client request, as illustrated in Fig.~\ref{fig:network-arch}, is forwarded from GIs to SNs and returned back to GIs consequently. GIs then return the most consistent result back to the client. Furthermore, a collusion will not have any impact on the result when the number of malicious or erroneous nodes, denoted $\mathcal{M}$, where $\mathcal{M} \le \mathcal{P}$.
+
+The probability of a collusion taking place, though slim, still exists in theory. GIs minimize this probability through breaking potential $\mathcal{M}$ via SDG, as described in Sec.~\ref{subsubsec:{Scalable Dynamic Grouping (SDG)}}. SNs within the same subgroup are less likely to be grouped together in the future to prevent possible collusion.
+
+Unlike blockchain-based networks, the collusion in the RSS3 Network is not economically profitable, which eliminates the primary motivation behind collusion\cite{schrepel2019Collusion}. In the event of a collusion, owners can correct tampered data at any time and report SNs for malicious behaviors. Collusive SNs lose their incentives and seats in the network. Since staking is required, slashing also serves as a deterrent to potential colluders.
+
+\subsection{Redundancy}
+Subgrouping provides redundancy as SNs: 1) maintain RSS3 Files assigned collaboratively, effectively creating $\mathcal{S}$ copies for redundancy; 2) are with best efforts distributed across the globe to provide geo-redundancy and sustain a high availability.
+
+During the election, DAO selects GIs from multiple regions to provide geo-redundancy.
+
+\subsection{Disaster Recovery}
+
+To recover from an unlikely event of a complete network failure, where more than $\mathcal{R}_g$ GIs or $\mathcal{R}_{s}$ SNs have failed to stay functional, see Eqn.~\ref{disaster-recovery}, DAO members may operate archive modules that constantly take snapshots of the entire network. GIs are also encouraged to operate archive modules.
+
+\begin{equation}
+\mathcal{R}_{(g \lor s)} = \lfloor\frac{\mathcal{(G \lor S)}}{3}\rfloor; \forall \mathcal{(G \lor S)} \in \mathbb{N}^+
+\label{disaster-recovery}
+\end{equation}
+
+\subsection{Sybil Attack}
+Sybil attacks may occur in any network, where a disproportionate level of network resources are allocated to attackers, affecting the network's availability. Research shows that there is currently no universally applicable solution to Sybil attacks\cite{douceur2002Sybil}. In the RSS3 Network, such an attack does not generate any financial gains. Furthermore, identity validation is implemented to minimize the chance of Sybil attacks. The network also increases the economic costs for such an attack.

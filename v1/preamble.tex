@@ -1,0 +1,149 @@
+
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\renewcommand\IEEEkeywordsname{Keywords}
+
+\usepackage[noadjust]{cite}
+\renewcommand{\citepunct}{,\penalty\citepunctpenalty\,}
+\renewcommand{\citedash}{--}
+\usepackage{caption}
+\usepackage{url}
+\usepackage{titletoc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\pgfplotsset{compat=1.14}
+
+\newcommand{\Rplus}{\protect\hspace{-.1em}\protect\raisebox{.35ex}{\smaller{\smaller\textbf{+}}}}
+\newcommand{\Cpp}{\mbox{C\Rplus\Rplus}\xspace}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algorithmic,eqparbox,array}
+\captionsetup[listing]{font={stretch=1.2}}
+
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+% auto labeling of sections
+\let\origsection=\section
+\renewcommand\section[1]{\origsection{#1}\label{sec:{#1}}}
+
+\let\origsubsection=\subsection
+\renewcommand\subsection[1]{\origsubsection{#1}\label{subsec:{#1}}}
+
+\let\origsubsubsection=\subsubsection
+\renewcommand\subsubsection[1]{\origsubsubsection{#1}\label{subsubsec:{#1}}}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+%   keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this, type, interface, extends},
+%   ndkeywordstyle=\color{darkgray}\bfseries,
+%   identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+%   commentstyle=\color{purple}\ttfamily,
+%   stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+% \lstset{
+%   language=JavaScript,
+% %   backgroundcolor=\color{lightgray},
+% %   columns=fullflexible,
+%   extendedchars=true,
+%   basicstyle=\footnotesize\ttfamily,
+%   showstringspaces=false,
+%   showspaces=false,
+% %   numbers=left,
+%   numberstyle=\footnotesize,
+%   numbersep=9pt,
+%   tabsize=2,
+%   breaklines=true,
+%   showtabs=false,
+%   captionpos=b
+% }
+
+\def\thesubsubsectiondis{\unskip\arabic{subsubsection})}
+
+\renewcommand{\ttdefault}{pcr}
+\lstset{
+    aboveskip=0.2cm,
+    stringstyle=\ttfamily,
+    showstringspaces = false,
+    basicstyle=\scriptsize\ttfamily,
+    commentstyle=\color{gray!85},
+    keywordstyle=\bfseries,
+    ndkeywordstyle=\bfseries,
+    identifierstyle=\ttfamily,
+    numbers=none,
+    % numbersep=5pt,
+    % numberstyle=\tiny,
+    % numberfirstline = false,
+    breaklines=true,
+    tabsize=2,
+    % frame=L,
+    rulecolor=\color{black},
+    captionpos=t,
+    % escapeinside=##
+    breakatwhitespace=true,
+    belowcaptionskip=10pt
+    % xleftmargin=10pt
+}
+
+% \lstset{
+%   basicstyle=\ttfamily,
+%   columns=fullflexible,
+%   frame=single,
+%   breaklines=true,
+%   basicstyle=\footnotesize, %or \tiny or \small etc.
+% %   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+% }
+
+\usepackage{hyperref}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=brown,
+    pdfpagemode=FullScreen,
+    }
+    
+\usepackage{multicol}
+
+
+\usepackage{tabulary}
+
+\definecolor{Mycolor1}{HTML}{4C5866} %#4C5866
+\definecolor{Mycolor2}{HTML}{A6B6D2} %#A6B6D2
+\definecolor{Mycolor3}{HTML}{C1D4E8} %#C1D4E8
+\definecolor{Mycolor4}{HTML}{F7F7FE} %#F7F7FE
+\definecolor{Mycolor5}{HTML}{d8f3dc} %#d8f3dc
+\definecolor{Mycolor6}{HTML}{EC6A5C} %#EC6A5C
+\definecolor{Mycolor7}{HTML}{EDE992} %#EDE992
+
+
+% Switch for algorithmic
+\newcommand{\Switch}[1]{\STATE \textbf{switch} (#1)}
+\newcommand{\EndSwitch}{\STATE \textbf{end switch}}
+\newcommand{\Case}[1]{\STATE \textbf{case} #1\textbf{:} \begin{ALC@g}}
+\newcommand{\EndCase}{\end{ALC@g}}
+\newcommand{\Caseline}[1]{\STATE \textbf{case} #1\textbf{:} }
+\newcommand{\Default}{\STATE \textbf{default:} \begin{ALC@g}}
+\newcommand{\EndDefault}{\end{ALC@g}}
+\newcommand{\DefaultLine}[1]{\STATE \textbf{default:} }

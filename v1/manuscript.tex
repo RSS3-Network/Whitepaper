@@ -1,0 +1,49 @@
+\documentclass[conference]{IEEEtran}
+\PassOptionsToPackage{table}{xcolor}
+\IEEEoverridecommandlockouts
+\include{preamble}
+\include{preamble.draft}
+
+\begin{document}
+
+\title{RSS3: A Next-Generation Feed Standard}
+
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{Natural Selection Labs}
+\maketitle              % typeset the header of the contribution
+
+\thispagestyle{plain}
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{abstract}
+
+Inspired by the original RSS Standard, this paper presents RSS3, the next-generation feed standard, that aims to support efficient and decentralized information distribution. Furthermore, the RSS3 Protocol is proposed in conjunction with a sophisticated network structure to implement the standard. The result is a fully decentralized network that is flexible, efficient, and extensible.
+
+\end{abstract}
+
+\input{sections/intro}
+
+\input{sections/glossary}
+
+\input{sections/standard}
+
+\input{sections/network}
+
+\input{sections/incentive}
+
+\input{sections/scalability}
+
+\input{sections/vul}
+
+\input{sections/conclusion}
+
+\let\section=\origsection
+\bibliography{bibtex/myRefs}
+\bibliographystyle{plain}
+
+\end{document}
+

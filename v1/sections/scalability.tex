@@ -1,0 +1,15 @@
+\section{Scalability}
+
+As a network grows, the performance bottleneck often results in a slow processing speed and a higher transaction cost. In previous sections, subgroup scaling (Sec.~\ref{subsubsec:{Subgroup Scaling}}) and SDG (Sec.~\ref{subsubsec:{Scalable Dynamic Grouping (SDG)}}) are described as measures to maintain network's availability and usability, they are also designed to improve both storage and communication efficiency.
+
+\subsection{Storage Efficiency}
+
+Storage efficiency is critical for a decentralized network. First of all, RSS3 Files are lightweight by design (since they contain the metadata only). DAO limits the number of RSS3 Files hosted by an SN and dynamically increases the number of subgroups through subgroup scaling. This strategy provides a sufficient level of data redundancy while maintaining storage efficiency.
+
+\subsection{Communication Efficiency}
+
+In any decentralized network, an increase in efficiency leads to a reduction in fault tolerance. Extensive research has been done to ensure that the RSS3 Network is able to maintain an ideal equilibrium. As opposed to a blockchain based network\cite{bitcoin-whitepaper, eth-whitepaper}, where a global consensus is required, an RSS3 Network only requires each subgroup to reach an internal consensus. This significantly reduces the communication complexity. As the number of RSS3 Files increases, DAO dynamically scales the network through the election mechanism and subgroup scaling in conjunction with SDG performed by GIs, to further reduce communication complexity for subgroups.
+
+GIs need to reach an internal consensus from time to time - such a consensus only requires an aggregated signature to reduce communication complexity. Furthermore, state-of-the-art BFT algorithms are implemented to maximize communication efficiency\cite{Mir-BFT,ibft}.
+
+More subgroups will inevitably overwhelm GIs. On top of scaling through the election mechanism, this is additionally mitigated by increasing the number of RNs to take the workload of client request handling (where no consensus is needed) off GIs' shoulders. DAO further imposes a limit on the maximum number of GIs to improve communication efficiency.
