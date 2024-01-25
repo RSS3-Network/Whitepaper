@@ -1,0 +1,21 @@
+\subsection{RSS3 \glsfmtfull{GI}}
+\label{subsec:GI}
+
+A \gls{GI} is responsible for facilitating coordination among \glspl{SN} and engaging with the \gls{VSL} and performs critical functions to ensure the \gls{DSL} is robust and reliable.
+
+Given the importance of the \gls{GI} to the Network, its operation is subject to a set of stringent requirements imposed by the Network.
+
+\subsubsection{Performance Assurance} A GI acts as a load balancer and query router for end users to retrieve information from \glspl{SN}.
+The unique architecture of the \gls{DSL} demands \glspl{GI} to be equipped with more computational capabilities, in order to work out the optimal route for end users to retrieve specific information from \gls{SN}, and frequently from a group of \glspl{SN} simultaneously.
+
+\subsubsection{Quality Assurance} A GI acts as a supervisor for \glspl{SN} to ensure the quality of service.
+With the \gls{DSL} being a permissionless Sublayer, the quality needs to be maintained strictly to ensure \glsfmtlong{R3N}'s robustness and reliability.
+A \gls{GI} monitors the quality of \glspl{SN} and slashes the \gls{SN} if it fails to meet the requirements.
+
+\subsubsection{Proof Onchain} A GI keeps track of the work and slash records of \glspl{SN} and submits them to the \gls{VSL} for settlement and reward allocation.
+
+\subsection{Reliability Score}
+
+A \gls{GI} routes requests to \glspl{SN} based on their information coverage and a \gls{RS}.
+The calculation of \reliabilityScore\ is based on a range of factors, including but not limited to the \gls{SN}'s uptime, work, slash records, operation deposit, and staking/trust pool size.
+\glspl{SN} with a higher \reliabilityScore\ have an increased likelihood of receiving requests.
