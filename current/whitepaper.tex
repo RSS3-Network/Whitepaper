@@ -1,8 +1,8 @@
-\documentclass[conference]{IEEEtran}
+\documentclass[final]{IEEEtran}
 
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \renewcommand\IEEEkeywordsname{Keywords}
-
+\usepackage[noadjust]{cite}
 \usepackage{caption}
 \usepackage{url}
 \usepackage{titletoc}
@@ -41,8 +41,8 @@
 \author{Natural Selection Labs}
 \maketitle
 
-\setcounter{tocdepth}{4}
-\tableofcontents
+% \setcounter{tocdepth}{4}
+% \tableofcontents
 
 \thispagestyle{plain}
 \pagestyle{plain}
@@ -50,7 +50,7 @@
 
 \begin{abstract}
 
-    Inspired by the original RSS Standard, this paper presents RSS3, the \glsfmtlong{OIL} for the \glsfmtlong{OW}. The paper serves as an enhanced version of the initial whitepaper titled ``RSS3: A Next-Generation Feed Standard.'' Following the release of the initial whitepaper, we have consistently adhered to the proposed architecture it outlines to conduct experiments and advance the development of the RSS3 Network. The Network has evolved into what is now known as the \glsfmtlong{OIL}, as a part of the ever-changing dynamics of the \glsfmtlong{OW}. This paper summarizes the research and development output since then, providing insights into RSS3's vision and its novel decentralization architecture. Finally, we present the Network's tokenomics and governance model, and discuss the future of RSS3.
+    Inspired by the original RSS Standard \cite{rssadvisoryboard2009RSS}, this paper presents RSS3, the \glsfmtlong{OIL} for the \glsfmtlong{OW}. The paper serves as an enhanced version of the initial whitepaper titled ``RSS3: A Next-Generation Feed Standard'' \cite{whitepaper}. Following the release of the initial whitepaper, we have consistently adhered to the proposed architecture it outlines to conduct experiments and advance the development of the RSS3 Network \cite{dsl0.2,dsl0.3,dsl0.4}. The Network has evolved into what is now known as the \glsfmtlong{OIL}, as a part of the ever-changing dynamics of the \glsfmtlong{OW}. This paper summarizes the research and development output since then, providing insights into RSS3's vision and its novel decentralization architecture. Finally, we present the Network's tokenomics and governance model, and discuss the future of RSS3.
 
 \end{abstract}
 
@@ -66,8 +66,8 @@
 
 \input{sections/conclusion}
 
-% \bibliographystyle{plain}
-% \bibliography{references}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 
 \cleardoublepage
 
