@@ -5,7 +5,7 @@ This repository contains the source code of the RSS3 Whitepaper v1 and v2.
 | Version |                 Title                 |               PDF               |
 | :-----: | :-----------------------------------: | :-----------------------------: |
 | current |    RSS3: The Open Information Layer   | [PDF](./current/whitepaper.pdf) |
-|    1    | RSS3: A Next-Generation Feed Standard | [PDF](./current/whitepaper.pdf) |
+|    1    | RSS3: A Next-Generation Feed Standard | [PDF](./v1/whitepaper.pdf)      |
 
 
 ## RSS3: The Open Information Layer
