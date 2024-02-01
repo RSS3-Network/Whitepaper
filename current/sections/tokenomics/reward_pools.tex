@@ -1,8 +1,7 @@
 \subsection{Reward Pools}
 \label{subsec:reward_pools}
 
-The \glsfmtlong{R3N} allocates a portion of \$RSS3's total supply to incentivize network participants, referred to as the \glsfirst{NR},
-and allocated into reward pools.
+The \glsfmtlong{R3N} incentivizes network participants with a portion of \$RSS3's total supply, referred to as the \glsfirst{NR}, and allocates it into reward pools.
 
 This section introduces three reward pools: the \glsfirst{OP}, the \glsfirst{SP}, and the \glsfirst{PGP}. See \Cref{fig:network-rewards} for an illustration.
 
@@ -17,7 +16,7 @@ An \glsfirst{OP} is used to store tokens that are allocated to a Normal Node fro
 
 The \glsfmtlong{NO} can set a tax rate, \taxRate, which is applied to its \stakingPool, in conjunction with its \gls{Deposit} to determine the amount of \gls{Tax} collected from its \stakingPool.
 See \Cref{subsubsec:taxation}.
-The tax applies to the \glsfmtlong{NR} being allocated to the Node's \stakingPool, but does not apply to the staked tokens.
+The tax applies to the \glsfmtlong{NR} being allocated to the Node's \stakingPool\ but does not apply to the staked tokens.
 
 Only the corresponding \glsfmtlong{NO} can withdraw tokens from its \operationPool, and the withdrawal is subject to a waiting period imposed by the Network.
 
@@ -26,7 +25,7 @@ Only the corresponding \glsfmtlong{NO} can withdraw tokens from its \operationPo
 
 A \glsfirst{SP} is used to store staked tokens for a Normal Node. Network participants can stake tokens into a Normal Node's \stakingPool\ to increase the Node's chance to receive requests on the \gls{DSL}.
 
-The allocation of \glsfmtlong{NR} into a Node's \stakingPool\ at the end of each epoch \epoch, is determined by two factors:
+The allocation of \glsfmtlong{NR} into a Node's \stakingPool\ at the end of each epoch \epoch\ is determined by two factors:
 \begin{enumerate}
     \item \gls{OR}, the Node's normalized work contribution \work\ in proportion to the total work done on the \gls{DSL} (See \Cref{subsubsec:staking_rewards})
     \item \gls{SR}, the Node's \stakingPool\ size in proportion to the total staked tokens on the \gls{VSL} (See \Cref{subsubsec:operation_rewards})
