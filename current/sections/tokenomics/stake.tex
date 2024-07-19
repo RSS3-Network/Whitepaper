@@ -14,25 +14,26 @@ A Public Good Node does not have a \glsfmtlong{SP} and does not participate in a
 \subsubsection{Chip}
 
 A Chip \chip\ is an ERC-721 Non-Fungible Tokens (NFTs) representing a network participant's stake in a particular Node.
-When a network participant stakes or entrusts tokens to a Node \node, the participant automatically receives Chips RSS3-\node\ ($\chip_\node$).
 
 \paragraph{Minting}
-A single Chip is minted for every staking transaction, irrespective of the quantity staked. The value of each Chip is determined by the ratio \radio\ of the current total amount of stake \$RSS3 tokens to the Node current value of the Chip:
+When a network participant stakes or entrusts tokens to a Node \node, the participant automatically receives a Chip-\node\ ($\chip_\node$).
+Its value is dynamically calculated by its weight in $\stakingPool$:
 
 \begin{equation}
-    \label{eq:chip_radio}
-    \chip_{\radio_{\text{mint}}} = 
-    \frac{\staking_{\text{mint}}}{\chip_{\node_\text{value}}}
+    \label{eq:chip_weight}
+    \chip_{\node_\text{weight}} =
+    \frac{\staking}{\stakingPool + \staking}
 \end{equation}
+
+Where $\staking \in \mathbb Z_{> 0}$ is always a non-negative integer.
 
 \paragraph{Redemption}
 A Chip can be redeemed for its underlying staked or entrusted tokens at any time, subject to a waiting period imposed by the Network.
-The redemption amount may be different from the original staking or entrusting amount due to the change of the Node current value of the Chip, which follows the same formula as \Cref{eq:chip_radio}:
+The redemption amount may be different from the original staking or entrusting amount due to the change of the underlying \stakingPool\ balance:
 
 \begin{equation}
     \label{eq:chip_redeem}
-    \staking_{\text{redeem}} = 
-    \chip_{\node_\text{value}} * \chip_{\radio_\text{mint}}
+    \staking_\text{redeem} = \chip_{\node_\text{weight}} \times \stakingPool
 \end{equation}
 
 % {
