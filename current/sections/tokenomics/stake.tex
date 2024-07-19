@@ -17,24 +17,22 @@ A Chip \chip\ is an ERC-721 Non-Fungible Tokens (NFTs) representing a network pa
 When a network participant stakes or entrusts tokens to a Node \node, the participant automatically receives Chips RSS3-\node\ ($\chip_\node$).
 
 \paragraph{Minting}
-The number of Chips minted for a particular staking or entrusting \staking\trust\ is determined by:
+A single Chip is minted for every staking transaction, irrespective of the quantity staked. The value of each Chip is determined by the ratio \radio\ of the current total amount of stake \$RSS3 tokens to the Node current value of the Chip:
 
 \begin{equation}
-    \label{eq:chip_supply}
-    \chip_{\node_\text{mint}} = 
-    \frac{\staking\trust * \max(1, \chip_{\node_\text{total}})}{\stakingPool}
+    \label{eq:chip_radio}
+    \chip_{\radio_{\text{mint}}} = 
+    \frac{\staking_{\text{mint}}}{\chip_{\node_\text{value}}}
 \end{equation}
-
-Where $\chip_{\node_\text{mint}} \in \mathbb Z_{> 0}$ is always a non-negative integer.
 
 \paragraph{Redemption}
 A Chip can be redeemed for its underlying staked or entrusted tokens at any time, subject to a waiting period imposed by the Network.
-The redemption amount may be different from the original staking or entrusting amount due to the change of the underlying \stakingPool\ balance, which follows the same formula as \Cref{eq:chip_supply}:
+The redemption amount may be different from the original staking or entrusting amount due to the change of the Node current value of the Chip, which follows the same formula as \Cref{eq:chip_radio}:
 
 \begin{equation}
     \label{eq:chip_redeem}
-    \staking\trust_{\text{redeem}} = 
-    \frac{\chip_{\node_\text{redeem}} * \stakingPool}{\max(1, \chip_{\node_\text{total}})}
+    \staking_{\text{redeem}} = 
+    \chip_{\node_\text{value}} * \chip_{\radio_\text{mint}}
 \end{equation}
 
 % {
