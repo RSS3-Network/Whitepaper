@@ -1,6 +1,6 @@
 # RSS3 Whitepaper
 
-This repository contains the source code of for all versions of the RSS3 Whitepaper.
+This repository contains the source code for all versions of the RSS3 Whitepaper.
 The Whitepaper has to be updated from time to time to reflect the latest changes in the landscape of the Open Web, and to ensure that the RSS3 Network stays relevant.
 
 The Whitepaper in a way serves as the 'Constitution' of the RSS3 Network.

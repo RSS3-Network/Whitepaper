@@ -23,23 +23,23 @@ Given the importance of the \glspl{GI} to the Network, their operation is subjec
     \end{figure}
 }
 
-\subsubsection{Router}
-The router of \gls{GI} ensures requests are routed and served with high performance and minimal latency.
-The unique architecture of the \gls{DSL} demands \gls{GI} to be equipped with more computational capabilities to work out the optimal route for processing incoming requests. A request often retrieves \glsfmtlong{OI} from a single \gls{Node} and frequently from a group of \glspl{Node} simultaneously.
-
 \subsubsection{Broadcaster and Enforcer}
-The broadcaster and enforcer of \gls{GI} act as supervisors for \glspl{Node} to ensure the quality of service. The broadcaster constantly monitors all \glspl{Node}' status for irregular behaviors. With the \gls{DSL} being a permissionless Sublayer, the quality needs to be maintained strictly to ensure \glsfmtlong{R3N}'s robustness and reliability.
-The enforcer works with the broadcaster and router to maintain a record of demotion and slashing, and slash a \gls{Node} if it fails to meet the requirements.
-
-\subsubsection{Settler}
-The settler of \gls{GI} initiates submissions of work records of \glspl{Node} to the \gls{VSL}, and the settlement contract will verify and distribute network rewards.
-
-\subsubsection{Payment Processor}
-The payment processor (works together with the settler) ensures that requests fees collected are correctly distributed to the corresponding Nodes and creators.
-Additionally, the payment processor works out the Network's average tax rate and updates the settlement contract on the \gls{VSL}.
+The broadcaster and enforcer components of the \gls{GI} function as regulatory mechanisms for \glspl{Node}, ensuring the maintenance of service quality. The broadcaster continuously monitors the status of all \glspl{Node} to detect any anomalous behavior. Given the permissionless nature of the \gls{DSL}, stringent quality control is essential to maintain the robustness and reliability of the \glsfmtlong{R3N}.
+The enforcer, in collaboration with the broadcaster and router, maintains a comprehensive record of demotions and slashing events, and implements punitive measures against \glspl{Node} that fail to meet the established requirements.
 
 \subsubsection{Indexer}
-The indexer is responsible for structuring activities that take place on the entire Network, and supplying the information via network transparency API.
+The indexer component is tasked with the systematic structuring of activities occurring across the entire Network. It subsequently provides this structured information through a network transparency API, facilitating comprehensive oversight of Network operations.
+
+\subsubsection{Payment Processor}
+The payment processor, operating in conjunction with the settler, ensures the accurate distribution of collected request fees to the corresponding \glspl{Node} and content creators.
+Furthermore, the payment processor calculates the Network's average tax rate and updates the settlement contract on the \gls{VSL} accordingly, maintaining financial equilibrium within the system.
+
+\subsubsection{Router}
+The router component of the \gls{GI} is responsible for ensuring that requests are routed and served with optimal performance and minimal latency.
+The distinctive architecture of the \gls{DSL} necessitates that the \gls{GI} be equipped with enhanced computational capabilities to determine the most efficient routing path for incoming requests. Typically, a request retrieves \glsfmtlong{OI} from either a single \gls{Node} or, more frequently, from a distributed group of \glspl{Node} concurrently.
+
+\subsubsection{Settler}
+The settler component of the \gls{GI} initiates the submission of \glspl{Node}' work records to the \gls{VSL}. Subsequently, the settlement contract on the \gls{VSL} verifies these records and facilitates the distribution of network rewards, ensuring fair compensation for network participants.
 
 \subsection{Reliability Score}
 
