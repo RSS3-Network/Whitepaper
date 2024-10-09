@@ -4,24 +4,48 @@
 {
     \begin{figure}[tb!]
         \centering
-        \includegraphics[width=0.7\columnwidth]{figures/GI.png}
+        \includegraphics[width=0.8\columnwidth]{figures/GI.png}
         \caption{A Venn diagram illustrating the relationship between the worker, the \glsfmtlong{Node}, and the \glsfmtlong{GI}.}
         \label{fig:GI}
     \end{figure}
 }
 
-A \gls{GI} is responsible for facilitating coordination among \glspl{Node} and engaging with the \gls{VSL} and performs critical functions to ensure the \gls{DSL} is robust and reliable.
+\glspl{GI} are responsible for facilitating coordination among \glspl{Node} and engaging with the \gls{VSL} and perform critical duties to ensure the \gls{DSL} is robust and reliable.
 
-Given the importance of the \gls{GI} to the Network, its operation is subject to a set of stringent requirements imposed by the Network.
+Given the permissionless nature of the \gls{DSL}, robust quality assurance is essential to maintain the integrity and reliability of the \glsfmtlong{R3N}.
+As such, the operation of a \gls{GI} is subject to a set of stringent requirements imposed by the Network.
 
-\subsubsection{Performance Assurance} A GI acts as a load balancer and query router for end users to retrieve information from \glspl{Node}.
-The unique architecture of the \gls{DSL} demands \glspl{GI} to be equipped with more computational capabilities to work out the optimal route for end users to retrieve specific information from \gls{Node} and frequently from a group of \glspl{Node} simultaneously.
+{
+    \begin{figure}[tb!]
+        \centering
+        \includegraphics[width=0.8\columnwidth]{figures/GI-components.png}
+        \caption{Components of a \gls{GI}. See \Cref{subsec:GI} for more details.}
+        \label{fig:GI-components}
+    \end{figure}
+}
 
-\subsubsection{Quality Assurance} A GI acts as a supervisor for \glspl{Node} to ensure the quality of service.
-With the \gls{DSL} being a permissionless Sublayer, the quality needs to be maintained strictly to ensure \glsfmtlong{R3N}'s robustness and reliability.
-A \gls{GI} monitors the quality of \glspl{Node} and slashes the \gls{Node} if it fails to meet the requirements.
+Each \gls{GI} is composed of several components, each with a unique set of responsibilities and functions that collectively contribute to the overall reliability and robustness of the \gls{DSL}.
 
-\subsubsection{Proof Onchain} A GI keeps track of the work and slash records of \glspl{Node} and submits them to the \gls{VSL} for settlement and reward allocation.
+\subsubsection{Broadcaster}
+The broadcaster is a component that continuously monitors all \glspl{Node} to detect any unusual or unexpected behavior.
+
+\subsubsection{Enforcer}
+The enforcer maintains demotion and slashing records, and implements measures to encourage \glspl{Node} to meet the established requirements.
+
+\subsubsection{Indexer}
+The indexer component provides structured information through its network transparency API, offering comprehensive insight into Network operations.
+
+\subsubsection{Payment Processor}
+The payment processor collects request fees from requesters.
+In addition, it calculates the Network's average tax rate and updates the settlement contract on the \gls{VSL} accordingly.
+
+\subsubsection{Router}
+The router is responsible for routing requests to corresponding \gls{Node} with optimal performance and minimal latency.
+The distinctive architecture of the \gls{DSL} requires \glspl{GI} be equipped with enhanced computational capabilities to determine the most efficient routing path for incoming requests.
+Typically, a request retrieves \glsfmtlong{OI} from a distributed group of \glspl{Node} concurrently.
+
+\subsubsection{Settler}
+The settler component submits \glspl{Node}' work records to the \gls{VSL}. Subsequently, the settlement contract on the \gls{VSL} verifies these records and facilitates the distribution of network rewards.
 
 \subsection{Reliability Score}
 

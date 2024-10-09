@@ -1,19 +1,19 @@
 \subsection{RSS3 \glsfmtfull{Node}}
-\label{subsec:SN}
+\label{subsec:Node}
 
 A \gls{Node}, also known as an RSS3 Node, is responsible for indexing, transforming, storing, and ultimately serving the \glsfmtlong{OI} to the end users.
 
 The operation of a \gls{Node} is permissionless and is subject to a set of requirements set by the Network.
 
 \subsubsection{Indexing}
-Each \gls{Node} operates a number of workers that index and structure \gls{OI} from \gls{PDS}.
+Each \gls{Node} operates a number of workers that index and structure \gls{OI} from \glspl{ODP}.
 Workers are community-maintained ``rules'' that define how \gls{OI} is indexed and transformed into the \gls{Protocol} format.
 
-Since each \gls{Node} is independent, it is possible for different \glspl{Node} to employ different combinations of workers to cover different \glspl{PDS}.
+Since each \gls{Node} is independent, it is possible for different \glspl{Node} to employ different combinations of workers to cover different \glspl{ODP}.
 This design enables node operation to be flexible, accessible, and affordable, in turn offering a high degree of decentralization and robustness.
 
 \subsubsection{Serving}
-Each \gls{Node} operates a standard set of interfaces that serve structured \gls{OI} in \gls{Protocol} to the end users via a \gls{GI}.
+Each \gls{Node} operates a standard set of interfaces that serve structured \gls{OI}.
 
-Each successful request served on the \gls{DSL} is recorded, and the corresponding \glsfmtlong{Fee} paid by requesters are distributed to the \gls{Node};
+Each successful request served on the \gls{DSL} is recorded, and the corresponding \glsfmtlong{Fee} paid by requesters will be distributed to the \gls{Node} base on the records.
 See \Cref{subsubsec:operation_pool} for more details.

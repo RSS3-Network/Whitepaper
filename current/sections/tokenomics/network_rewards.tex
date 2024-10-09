@@ -71,7 +71,7 @@ $\networkReward_{\trust|\publicGoodNode, \epoch}$ therefore denotes the \glsfmtl
 \subsubsection{Taxation (\tax)}
 \label{subsubsec:taxation}
 
-A Normal Node's operator sets the tax rate \taxRate\ which is imposed on the Network Rewards allocated to its \stakingPool.
+A Normal Node's operator sets the tax rate \taxRate\ which is imposed on the network rewards allocated to its \stakingPool.
 
 The amount of taxiable \stakingReward\ is capped at a maximum of \taxCap\ times the amount of the current \operationPool, where \taxCap\ is set by the Network.
 
@@ -79,7 +79,7 @@ The amount of taxiable \stakingReward\ is capped at a maximum of \taxCap\ times 
     \tax_{\node, \epoch} =
     \min(\pool_{\operation|\node, \epoch}
     * \taxCap_\epoch , (\networkReward_{\staking|\node, \epoch}
-    + \networkReward_{\operation|\node, \epoch} ) 
+    + \networkReward_{\operation|\node, \epoch} )
     * \taxRate_{\node, \epoch})
 \end{equation}
 
